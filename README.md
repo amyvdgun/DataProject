@@ -22,4 +22,12 @@ Uiteindelijk kan je op een candle klikken en op dat moment verschijnt er een dag
 
 
 ## Prerequisites
-# Data Source
+#### Data Source
+- https://www.investing.com/indices/european-indices?&majorIndices=on
+- https://finance.yahoo.com/
+
+#### External Components
+- Bootstrap 4.1.1
+- d3-tip
+
+#### Hardest Parts
