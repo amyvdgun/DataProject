@@ -30,4 +30,9 @@ Uiteindelijk kan je op een candle klikken en op dat moment verschijnt er een dag
 - Bootstrap 4.1.1
 - d3-tip
 
+#### Similar Visualizations
+Een scatterplot en een line chart heb ik eerder gemaakt. Niet met dezelfde dataset (helaas..), maar ik ga er vanuit dat dit niet heel veel problemen gaat opleveren. Een candlestick chart heb ik nog nooit gemaakt. Echter, er zijn veel voorbeelden te vinden en dit type chart wordt veel gebruikt in de finance.
+
 #### Hardest Parts
+Ik denk dat het lastig wordt om de visualisaties aan elkaar te linken. Ik heb te maken met een enorme dataset met verschillende bedrijven, verschillende prijzen en verschillende perioden.
+Echter denk ik dat het met de juiste converter en json file haalbaar is om het project te implementeren. 
