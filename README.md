@@ -1,6 +1,6 @@
-# DataProject
+# DataProject - Stock Checker 5000
 ## Introductie
-Ik, Amy van der Gun, visualiseer meerdere datasets in dit project.
+Ik, Amy van der Gun, visualiseer een financiële dataset in het project 'Stock Checker 5000'.
 
 ## Problem Statement
 Het is voor veel investeerders onduidelijk hoe risico verband houdt met rendement. Het idee van investeren is dat je het rendement ten opzichte van het risico maximaliseert. Het is daarom van belang dat er overzicht gecreëerd wordt met betrekking tot dit probleem.
@@ -35,4 +35,4 @@ Een scatterplot en een line chart heb ik eerder gemaakt. Niet met dezelfde datas
 
 #### Hardest Parts
 Ik denk dat het lastig wordt om de visualisaties aan elkaar te linken. Ik heb te maken met een enorme dataset met verschillende bedrijven, verschillende prijzen en verschillende perioden.
-Echter denk ik dat het met de juiste converter en json file haalbaar is om het project te implementeren. 
+Echter denk ik dat het met de juiste converter en json file haalbaar is om het project te implementeren.
