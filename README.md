@@ -7,6 +7,9 @@ Het is voor veel investeerders onduidelijk hoe risico verband houdt met rendemen
 
 #### Solution
 Deze visualisaties zullen het verband laten zien tussen het risico en rendement van aandelen op de AEX index.
+![](doc/SML.png)
+
+![](doc/LINE.png)
 
 ![](doc/CANDLE.png)
 
