@@ -6,12 +6,12 @@ Ik, Amy van der Gun, visualiseer een financiële dataset in het project 'Stock C
 Het is voor veel investeerders onduidelijk hoe risico verband houdt met rendement. Het idee van investeren is dat je het rendement ten opzichte van het risico maximaliseert. Het is daarom van belang dat er overzicht gecreëerd wordt met betrekking tot dit probleem.
 
 ## Solution
-Deze visualisaties zullen het verband laten zien tussen het risico en rendement van aandelen op de AEX index.
-Met behulp van de onderstaande scatterplot zal het verband weergegeven worden tussen de bèta's van de aandelen op de AEX en het bijbehorende rendement. Als er over de 'dots' wordt gehoverd, krijgt de gebruiker de naam, de bèta en het rendement van dat bepaalde bedrijf te zien.
+Deze visualisaties zullen het verband laten zien tussen het risico en rendement van aandelen op de S&P500 index.
+Met behulp van de onderstaande scatterplot zal het verband weergegeven worden tussen de bèta's van de aandelen op de S&P500 en het bijbehorende rendement. Als er over de 'dots' wordt gehoverd, krijgt de gebruiker de naam, de bèta en het rendement van dat bepaalde bedrijf te zien.
 
 ![](doc/SML.png)
 
-Vervolgens kan er geklikt worden op alle 'dots' in de scatterplot. Op het moment van klikken, zal er via een candlestick chart per bedrijf worden weergegeven wat de hoogste, laagste, open en close stock price is per periode. Dit zullen waarschijnlijk maandelijkse/dagelijkse perioden zijn.
+Vervolgens kan er geklikt worden op alle 'dots' in de scatterplot. Op het moment van klikken, zal er via een candlestick chart per bedrijf worden weergegeven wat de hoogste, laagste, open en close stock price is per periode. Dit zullen de prijzen zijn van de meest recente 30/31 dagen.
 
 ![](doc/CANDLE.png)
 
@@ -25,7 +25,7 @@ Als interactieve elementen zal ik een dropdown menu maken, waarbij er op een and
 ## Prerequisites
 #### Data Source
 - https://www.investing.com/indices/european-indices?&majorIndices=on
-- https://finance.yahoo.com/
+- https://iextrading.com/developer/docs/#getting-started
 
 #### External Components
 - Bootstrap 4.1.1

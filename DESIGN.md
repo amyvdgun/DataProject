@@ -23,7 +23,7 @@ Uiteindelijk kan je op een candle klikken en op dat moment verschijnt er een dag
 
 ![](doc/LINE.png)
 
-Als het niet mogelijk is om de 'per uur data' te verkrijgen via de API, dan zal ik via een barchart of line graph andere financiële variabelen weergeven. Deze barchart of deze line graph zijn wederom hoverable middels d3-tip. 
+Als het niet mogelijk is om de 'per uur data' te verkrijgen via de API, dan zal ik via een barchart of line graph andere financiële variabelen weergeven. Deze barchart of deze line graph zijn wederom hoverable middels d3-tip.
 
 #### Plugins
 - https://iextrading.com/developer/docs/#getting-started
