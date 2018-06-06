@@ -1,4 +1,4 @@
-# DataProject - Stock Checker 5000
+# Stock Checker 5000
 ## Introductie
 Ik, Amy van der Gun, visualiseer een financiële dataset in het project 'Stock Checker 5000'.
 
@@ -19,7 +19,7 @@ Uiteindelijk kan je op een candle klikken en op dat moment verschijnt er een dag
 
 ![](doc/LINE.png)
 
-Als interactieve elementen zal ik een dropdown menu maken, waarbij er op een ander jaar geklikt kan worden. Verder zal ik een search engine implementeren waarbij er gezocht kan worden op een ticker symbol. 
+Als interactieve elementen zal ik een dropdown menu maken, waarbij er op een ander jaar geklikt kan worden. Verder zal ik een search engine implementeren waarbij er gezocht kan worden op een ticker symbol.
 
 
 ## Prerequisites
