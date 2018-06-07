@@ -13,7 +13,7 @@ var margin = {top: 40, bottom: 50, left: 100, right: 200},
   height = 550 - margin.top - margin.bottom;
 
 // add the SVG element and set characteristics
-var scatterplot = d3.select("#scatterplot")
+var scatterplot = d3.select(".scatterplot")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -46,3 +46,7 @@ var yAxis = d3.axisLeft(y);
 scatterplot.append("g")
     .attr("class", "y axis")
     .call(yAxis)
+
+function searchFirm() {
+  alert("It's not working yet....");
+}
