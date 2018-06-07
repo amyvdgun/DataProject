@@ -22,6 +22,8 @@ var scatterplot = d3.select("#scatterplot")
 
 var beta = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
 
+var rendement = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
+
 // set the range for x
 var x = d3.scaleLinear()
   .range([0, width, .1])
@@ -30,7 +32,7 @@ var x = d3.scaleLinear()
 // create y variable
 var y = d3.scaleLinear()
     .range([height, 0])
-    .domain([0, 100]);
+    .domain([rendement]);
 
 // create and draw x-axis on desired position
 var xAxis = d3.axisBottom(x);
