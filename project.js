@@ -53,28 +53,17 @@ window.onload = function () {
   // create request variable
   var request = new XMLHttpRequest();
 
-  request.open("GET", "https://ws-api.iextrading.com/1.0/stock/aapl/chart", false);
-  request.send();
+  request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart", false);
 
   console.log(request.status);
   console.log(request.statusText);
-  //
-  // request.open("GET", "https://ws-api.iextrading.com/1.0/stock/aapl/chart", true);
-  // request.onload = function () {
-  //
-  //   // Begin accessing JSON data here
-  //   var data = JSON.parse(this.response);
-  //   console.log(data);
 
-    // if (request.status >= 200 && request.status < 400) {
-    //   data.forEach(movie => {
-    //     console.log(movie.title);
-    //   });
-    // } else {
-    //   console.log('error');
-    // }
-}
-
+  request.onload = function () {
+    var data = request.response;
+    console.log(data);
+  }
+  request.send();
+};
 
 function searchFirm() {
   alert("It's not working yet....");
