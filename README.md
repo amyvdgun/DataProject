@@ -1,5 +1,5 @@
 # Stock Checker 5000
-https://amyvdgun.github.io/DataProject/
+https://amyvdgun.github.io/DataProject/.
 ## Introductie
 Ik, Amy van der Gun, visualiseer een financiële dataset in het project 'Stock Checker 5000'.
 
