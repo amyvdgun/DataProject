@@ -49,6 +49,12 @@ window.onload = function () {
   scatterplot.append("g")
       .attr("class", "y axis")
       .call(yAxis)
+
+  // create request variable
+  var request = new XMLHttpRequest();
+
+
+
 };
 
 function searchFirm() {

@@ -12,13 +12,11 @@
 }
 
 .form-control:focus {
-    border-color: #92B558 !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
 
 .btn:focus {
-    border-color: #92B558 !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
