@@ -49,9 +49,8 @@ window.onload = function () {
   scatterplot.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-
-  function searchFirm() {
-    alert("It's not working yet....");
-  }
-
 };
+
+function searchFirm() {
+  alert("It's not working yet....");
+}
