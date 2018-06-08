@@ -5,6 +5,7 @@
 * project.js
 *
 * Creates interactive visualizations using financial data.
+* https://www.w3schools.com/js/js_ajax_http.asp
 */
 
 // execute function when DOM is loaded
@@ -53,7 +54,7 @@ window.onload = function () {
   // create request variable
   var request = new XMLHttpRequest();
 
-  request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart", false);
+  request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart", true);
 
   console.log(request.status);
   console.log(request.statusText);
@@ -63,8 +64,25 @@ window.onload = function () {
     console.log(data);
   }
   request.send();
+
+    // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
+    var input = document.getElementById("inputFirm");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      document.getElementById("myBtn").click();
+    }
+  });
 };
 
 function searchFirm() {
-  alert("It's not working yet....");
+  var input = document.getElementById("inputFirm").value;
+  console.log(input);
+  //alert("It's not working yet....");
+
 }
