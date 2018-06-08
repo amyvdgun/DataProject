@@ -7,46 +7,51 @@
 * Creates interactive visualizations using financial data.
 */
 
-// set the outer and inner width and height
-var margin = {top: 40, bottom: 50, left: 100, right: 200},
-  width = 1100 - margin.left - margin.right,
-  height = 550 - margin.top - margin.bottom;
+// execute function when DOM is loaded
+window.onload = function () {
 
-// add the SVG element and set characteristics
-var scatterplot = d3.select(".scatterplot")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  // set the outer and inner width and height
+  var margin = {top: 40, bottom: 50, left: 100, right: 200},
+    width = 1100 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
 
-var beta = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
+  // add the SVG element and set characteristics
+  var scatterplot = d3.select("#scatterplot")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var rendement = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
+  var beta = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
 
-// set the range for x
-var x = d3.scaleLinear()
-  .range([0, width, .1])
-  .domain([beta]);
+  var rendement = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
 
-// create y variable
-var y = d3.scaleLinear()
-    .range([height, 0])
-    .domain([rendement]);
+  // set the range for x
+  var x = d3.scaleLinear()
+    .range([0, width, .1])
+    .domain([beta]);
 
-// create and draw x-axis on desired position
-var xAxis = d3.axisBottom(x);
-scatterplot.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+  // create y variable
+  var y = d3.scaleLinear()
+      .range([height, 0])
+      .domain([rendement]);
 
-// create and draw y-axis on desired position
-var yAxis = d3.axisLeft(y);
-scatterplot.append("g")
-    .attr("class", "y axis")
-    .call(yAxis)
+  // create and draw x-axis on desired position
+  var xAxis = d3.axisBottom(x);
+  scatterplot.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
 
-function searchFirm() {
-  alert("It's not working yet....");
-}
+  // create and draw y-axis on desired position
+  var yAxis = d3.axisLeft(y);
+  scatterplot.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+
+  function searchFirm() {
+    alert("It's not working yet....");
+  }
+
+};
