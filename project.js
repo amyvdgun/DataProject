@@ -11,9 +11,9 @@
 window.onload = function () {
 
   // set the outer and inner width and height
-  var margin = {top: 40, bottom: 50, left: 100, right: 200},
-    width = 1100 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+  var margin = {top: 50, bottom: 50, left: 100, right: 100},
+    width = 1000 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
   var scatterplot = d3.select("#scatterplot")
