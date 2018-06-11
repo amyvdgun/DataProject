@@ -11,4 +11,5 @@ Daarnaast heb ik ervoor gezorgd dat ik divs heb in mijn html die netjes naast el
 
 Groetjes!
 
-# Day 3
+# Day 3 - 11 June
+Ik heb vandaag gewerkt aan mijn data. Ik heb nu een API gevonden waarbij ik data kan krijgen per minuut. Dit betekent dat ik mijn line graph wel goed kan implementeren. Hier was ik eerst nog onzeker over, omdat ik verwachtte dat het lastig zou zijn de juiste API te vinden. De API die ik ga gebruiken: https://www.alphavantage.co/documentation/#intraday
