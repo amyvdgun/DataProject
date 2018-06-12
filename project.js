@@ -55,23 +55,24 @@ window.onload = function () {
 
   // load in csv file with most recent ticker symbols
   d3.csv("tickersymbols.csv", function(data) {
-    // data.forEach(function(d) {
-    //console.log(data[1].Ticker);
-    // create request variable
+
+    // join all symbols into one string
+    var symbols = data.map(a=> a.Ticker).join();
+
+    // create new request variable
     var request = new XMLHttpRequest();
 
-    // loop over all the ticker symbols and make request to API
-    for (var ticker = 0; ticker < data.length; ticker++) {
-      request.open("GET", "https://api.iextrading.com/1.0/stock/"+data[ticker].Ticker+"/stats/beta", false);
+    // request all stats data from entire string consisting of all stocks
+    request.open("GET", "https://api.iextrading.com/1.0/stock/market/batch?symbols="
+      +symbols+"&types=stats", false);
       request.onload = function () {
-        var elements = request.response;
-        console.log(elements);
-        alldata.push(elements);
-      }
-      request.send();
-    };
 
-    console.log(alldata);
+        // parse all stats data into a json format
+        alldata = JSON.parse(request.response);
+      };
+      request.send();
+
+     console.log(alldata.AAPL);
 
   });
 
@@ -94,4 +95,18 @@ function searchFirm() {
   var input = document.getElementById("inputFirm").value;
   console.log(input);
   //alert("It's not working yet....");
+  // // loop over all the ticker symbols and make request to API
+  // for (var ticker = 0; ticker < data.length; ticker++) {
+  //   request.open("GET", "https://api.iextrading.com/1.0/stock/"+data[ticker].Ticker+"/stats", false);
+  //   request.onload = function () {
+  //     var elements = request.response;
+  //     console.log(elements);
+  //     alldata.push(elements);
+  //   }
+  //   request.send();
+  // };
+  //
+  // console.log(alldata);
+
+// });
 }
