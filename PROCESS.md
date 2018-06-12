@@ -18,4 +18,8 @@ Voor de scatterplot gebruik ik nog steeds de API genoemd op 7 juni. Ik heb een m
 Groeten!
 
 # Day 4 - 12 June
-Vandaag heb ik verder gewerkt aan mijn data. 
+Vandaag heb ik verder gewerkt aan mijn data. Ik heb nu een manier gevonden hoe ik in één keer alle data opvraag van alle bedrijven genoteerd op de S&P500. Ik kan nu beginnen aan het creëeren van de eerste visualisatie.
+
+Kusjes xx
+
+# Day 5 - 13 June

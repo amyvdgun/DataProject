@@ -51,12 +51,13 @@ window.onload = function () {
       .attr("class", "y axis")
       .call(yAxis)
 
+  // create empty array
   var alldata = [];
 
   // load in csv file with most recent ticker symbols
   d3.csv("tickersymbols.csv", function(data) {
 
-    // join all symbols into one string
+    // join all ticker symbols into one string
     var symbols = data.map(a=> a.Ticker).join();
 
     // create new request variable
@@ -72,7 +73,7 @@ window.onload = function () {
       };
       request.send();
 
-     console.log(alldata.AAPL);
+     console.log(alldata);
 
   });
 
