@@ -73,7 +73,12 @@ window.onload = function () {
       };
       request.send();
 
-     console.log(alldata);
+      console.log(alldata);
+
+    for (firm in alldata) {
+      console.log(alldata[firm].stats.beta, alldata[firm].stats.companyName);
+    }
+     //console.log(alldata.AAPL.stats.beta);
 
   });
 
