@@ -60,7 +60,7 @@ window.onload = function () {
   // create request variable
   var request = new XMLHttpRequest();
 
-  // nu handmatig maar csv of json inladen met tickers!!!!!! 
+  // nu handmatig maar csv of json inladen met tickers!!!!!!
   var tickers = ["aapl", "mmm", "abt"];
   var alldata = [];
 
