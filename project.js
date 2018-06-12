@@ -51,32 +51,29 @@ window.onload = function () {
       .attr("class", "y axis")
       .call(yAxis)
 
-  // $.getJSON("https://api.iextrading.com/1.0/stock/aapl/stats", function(data) {
-  //   console.log(data);
-  //
-  // })
-
-
-  // create request variable
-  var request = new XMLHttpRequest();
-
-  // nu handmatig maar csv of json inladen met tickers!!!!!!
-  var tickers = ["aapl", "mmm", "abt"];
   var alldata = [];
 
-  for (var ticker = 0; ticker < tickers.length; ticker++) {
-    request.open("GET", "https://api.iextrading.com/1.0/stock/"+tickers[ticker]+"/stats", false);
-    request.onload = function () {
-      var data = request.response;
-      alldata.push(data);
-      console.log(data);
-    }
-    request.send();
-    console.log("NIEUWE FIRM XXX");
-  };
+  // load in csv file with most recent ticker symbols
+  d3.csv("tickersymbols.csv", function(data) {
+    // data.forEach(function(d) {
+    //console.log(data[1].Ticker);
+    // create request variable
+    var request = new XMLHttpRequest();
 
-  console.log(alldata);
+    // loop over all the ticker symbols and make request to API
+    for (var ticker = 0; ticker < data.length; ticker++) {
+      request.open("GET", "https://api.iextrading.com/1.0/stock/"+data[ticker].Ticker+"/stats/beta", false);
+      request.onload = function () {
+        var elements = request.response;
+        console.log(elements);
+        alldata.push(elements);
+      }
+      request.send();
+    };
 
+    console.log(alldata);
+
+  });
 
     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
     var input = document.getElementById("inputFirm");
