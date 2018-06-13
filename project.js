@@ -53,38 +53,40 @@ window.onload = function () {
 
   // create empty array
   var alldata = [];
+  var scatterdata = [];
 
-  // load in csv file with most recent ticker symbols
-  d3.csv("tickersymbols.csv", function(data) {
+  for (var i = 0; i < 6; i++) {
+    // load in csv file with most recent ticker symbols
+    d3.csv("tickersymbols" + i + ".csv", function(data) {
 
-    // join all ticker symbols into one string
-    var symbols = data.map(a=> a.Ticker).join();
+      // join all ticker symbols into one string
+      var symbols = data.map(a=> a.Ticker).join();
 
-    // create new request variable
-    var request = new XMLHttpRequest();
+      // create new request variable
+      var request = new XMLHttpRequest();
 
-    // request all stats data from entire string consisting of all stocks
-    request.open("GET", "https://api.iextrading.com/1.0/stock/market/batch?symbols="
-      +symbols+"&types=stats", false);
-      request.onload = function () {
+      // request all stats data from entire string consisting of all stocks
+      request.open("GET", "https://api.iextrading.com/1.0/stock/market/batch?symbols="
+        +symbols+"&types=stats", false);
+        request.onload = function () {
 
-        // parse all stats data into a json format
-        alldata = JSON.parse(request.response);
+          // parse all stats data into a json format
+          alldata = JSON.parse(request.response);
+        };
+        request.send();
+
+        // var count = Object.keys(alldata).length;
+        // console.log(count);
+
+      for (firm in alldata) {
+        scatterdata.push(alldata[firm].stats.companyName, alldata[firm].stats.beta,
+          alldata[firm].stats.returnOnEquity);
       };
-      request.send();
+    });
+  };
 
-      console.log(alldata);
+  console.log(scatterdata);
 
-      var count = Object.keys(alldata).length;
-      console.log(count);
-    //
-    // for (firm in alldata) {
-    //   console.log(alldata[firm].stats.beta, alldata[firm].stats.companyName);
-    // }
-
-     //console.log(alldata.AAPL.stats.beta);
-
-  });
 
     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
     var input = document.getElementById("inputFirm");
