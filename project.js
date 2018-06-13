@@ -55,8 +55,10 @@ window.onload = function () {
   var alldata = [];
   var scatterdata = [];
 
+  // choose another csv file every round
   for (var i = 0; i < 6; i++) {
-    // load in csv file with most recent ticker symbols
+
+    // load in csv file with ticker symbols
     d3.csv("tickersymbols" + i + ".csv", function(data) {
 
       // join all ticker symbols into one string
@@ -75,9 +77,7 @@ window.onload = function () {
         };
         request.send();
 
-        // var count = Object.keys(alldata).length;
-        // console.log(count);
-
+      // filter and push all relevant data into a new array
       for (firm in alldata) {
         scatterdata.push(alldata[firm].stats.companyName, alldata[firm].stats.beta,
           alldata[firm].stats.returnOnEquity);
@@ -86,7 +86,6 @@ window.onload = function () {
   };
 
   console.log(scatterdata);
-
 
     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
     var input = document.getElementById("inputFirm");
