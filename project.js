@@ -75,9 +75,13 @@ window.onload = function () {
 
       console.log(alldata);
 
-    for (firm in alldata) {
-      console.log(alldata[firm].stats.beta, alldata[firm].stats.companyName);
-    }
+      var count = Object.keys(alldata).length;
+      console.log(count);
+    //
+    // for (firm in alldata) {
+    //   console.log(alldata[firm].stats.beta, alldata[firm].stats.companyName);
+    // }
+
      //console.log(alldata.AAPL.stats.beta);
 
   });
