@@ -18,8 +18,15 @@ Voor de scatterplot gebruik ik nog steeds de API genoemd op 7 juni. Ik heb een m
 Groeten!
 
 # Day 4 - 12 June
-Vandaag heb ik verder gewerkt aan mijn data. Ik heb nu een manier gevonden hoe ik in één keer alle data opvraag van alle bedrijven genoteerd op de S&P500. Helaas kan ik maar 100 firms opvragen in 1 request. Dit moet ik nog even regelen. 
+Vandaag heb ik verder gewerkt aan mijn data. Ik heb nu een manier gevonden hoe ik in één keer alle data opvraag van alle bedrijven genoteerd op de S&P500. Helaas kan ik maar 100 firms opvragen in 1 request. Dit moet ik nog even regelen.
 
 Kusjes xx
 
 # Day 5 - 13 June
+Vandaag heb ik geprobeerd om de scatterplot te creeeren. Echter kon ik maar 100 firms opvragen in 1 request, dit heb ik verholpen door verschillende csv-files te maken en verschillende requests te doen in een for-loop. Vervolgens wilde ik mijn data doorgeven aan de scatterplot. Helaas gaf dit nog veel problemen.
+
+GRT!!!
+
+
+# Day 6 - 14 June
+Ik heb vandaag mijn scatterplot afgerond. Het was nog een hele uitdaging omdat ik gisteren tegen veel obstakels aanliep.
