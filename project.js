@@ -11,9 +11,11 @@
 // execute function when DOM is loaded
 window.onload = function () {
 
+  //var color = d3.scale.category10();
+
   // set the outer and inner width and height
-  var margin = {top: 50, bottom: 50, left: 100, right: 100},
-    width = 1000 - margin.left - margin.right,
+  var margin = {top: 50, bottom: 50, left: 50, right: 50},
+    width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
@@ -23,33 +25,6 @@ window.onload = function () {
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  var beta = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
-
-  var rendement = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4];
-
-  // set the range for x
-  var x = d3.scaleLinear()
-    .range([0, width, .1])
-    .domain([beta]);
-
-  // create y variable
-  var y = d3.scaleLinear()
-      .range([height, 0])
-      .domain([rendement]);
-
-  // create and draw x-axis on desired position
-  var xAxis = d3.axisBottom(x);
-  scatterplot.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  // create and draw y-axis on desired position
-  var yAxis = d3.axisLeft(y);
-  scatterplot.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
 
   // create empty array
   var alldata = [];
@@ -73,19 +48,59 @@ window.onload = function () {
         request.onload = function () {
 
           // parse all stats data into a json format
+          // alldata.push(JSON.parse(request.response));
           alldata = JSON.parse(request.response);
+          //console.log(Object.values(alldata));
+          for (firm in alldata) {
+            scatterdata.push(alldata[firm].stats);
+            // console.log(alldata[firm].stats);
+          }
+          if (scatterdata.length > 500) {
+            console.log("hallo");
+            makeScatter(scatterdata);
+          };
         };
         request.send();
 
-      // filter and push all relevant data into a new array
-      for (firm in alldata) {
-        scatterdata.push(alldata[firm].stats.companyName, alldata[firm].stats.beta,
-          alldata[firm].stats.returnOnEquity);
-      };
     });
+
   };
 
-  console.log(scatterdata);
+
+
+  function makeScatter(scatterdata){
+      console.log(scatterdata);
+      // set the range for x
+      var x = d3.scaleLinear()
+        .range([0, width])
+        .domain(d3.extent(scatterdata, function(d) { return d.beta; })).nice();
+
+      // create y variable
+      var y = d3.scaleLinear()
+          .range([height, 0])
+          .domain(d3.extent(scatterdata, function(d) { return d.returnOnEquity; })).nice();
+
+      // add x-axis
+      scatterplot.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+      // add y-axis
+      scatterplot.append("g")
+          .call(d3.axisLeft(y));
+
+    // create dots in the plot for each data point
+      scatterplot.selectAll(".dot")
+        .data(scatterdata)
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 4)
+        .attr("cx", function(d) { return x(d.beta); })
+        .attr("cy", function(d) { return y(d.returnOnEquity); });
+        //.style("fill", function(d) { return color(d.companyName); });
+        // .on("mouseover", tip.show)
+        // .on("mouseout", tip.hide);
+  };
 
     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
     var input = document.getElementById("inputFirm");
