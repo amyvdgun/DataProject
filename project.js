@@ -11,12 +11,12 @@
 // execute function when DOM is loaded
 window.onload = function () {
 
-  //var color = d3.scale.category10();
+  //var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // set the outer and inner width and height
   var margin = {top: 50, bottom: 50, left: 50, right: 50},
-    width = 500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 1100 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
   var scatterplot = d3.select("#scatterplot")
@@ -25,6 +25,18 @@ window.onload = function () {
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // add the tooltip and its content
+  var tip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-10, 0])
+    .html(function (d) {
+      return (d.companyName + "<br>" + "Beta: "
+      + d.beta + "<br>" + "Return on Equity: " + d.returnOnEquity)});
+
+      // start the tip
+      scatterplot.call(tip);
+
 
   // create empty array
   var alldata = [];
@@ -56,7 +68,6 @@ window.onload = function () {
             // console.log(alldata[firm].stats);
           }
           if (scatterdata.length > 500) {
-            console.log("hallo");
             makeScatter(scatterdata);
           };
         };
@@ -65,8 +76,6 @@ window.onload = function () {
     });
 
   };
-
-
 
   function makeScatter(scatterdata){
       console.log(scatterdata);
@@ -83,11 +92,25 @@ window.onload = function () {
       // add x-axis
       scatterplot.append("g")
           .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x));
+          .call(d3.axisBottom(x))
+          .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", margin.bottom)
+            .style("text-anchor", "end")
+            .text("Beta");
 
       // add y-axis
       scatterplot.append("g")
-          .call(d3.axisLeft(y));
+          .call(d3.axisLeft(y))
+          .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("x", 0)
+            .attr("y", -margin.left)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Return on Equity");
 
     // create dots in the plot for each data point
       scatterplot.selectAll(".dot")
@@ -96,10 +119,13 @@ window.onload = function () {
         .attr("class", "dot")
         .attr("r", 4)
         .attr("cx", function(d) { return x(d.beta); })
-        .attr("cy", function(d) { return y(d.returnOnEquity); });
+        .attr("cy", function(d) { return y(d.returnOnEquity); })
         //.style("fill", function(d) { return color(d.companyName); });
-        // .on("mouseover", tip.show)
-        // .on("mouseout", tip.hide);
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
+
+
+
   };
 
     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
@@ -120,7 +146,6 @@ window.onload = function () {
 function searchFirm() {
   var input = document.getElementById("inputFirm").value;
   console.log(input);
-  //alert("It's not working yet....");
   // // loop over all the ticker symbols and make request to API
   // for (var ticker = 0; ticker < data.length; ticker++) {
   //   request.open("GET", "https://api.iextrading.com/1.0/stock/"+data[ticker].Ticker+"/stats", false);
