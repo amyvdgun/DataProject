@@ -33,8 +33,8 @@ window.onload = function () {
       return (d.companyName + "<br>" + "Beta: "
       + d.beta + "<br>" + "Return on Equity: " + d.returnOnEquity+ "%")});
 
-      // start the tip
-      scatterplot.call(tip);
+  // start the tip
+  scatterplot.call(tip);
 
   // create empty array
   var alldata = [];
@@ -84,6 +84,7 @@ window.onload = function () {
       // create y variable
       var y = d3.scaleLinear()
           .range([height, 0])
+          //.domain([-2,2]);
           .domain(d3.extent(scatterdata, function(d) { return (d.returnOnEquity); })).nice();
 
       // add x-axis
