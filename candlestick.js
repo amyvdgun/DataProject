@@ -48,7 +48,7 @@ window.onload = function () {
 
         // parse all data into a json format
         var alldata = JSON.parse(request.response);
-        // console.log(alldata);
+        console.log(alldata);
 
         var accessor = candlestick.accessor();
 
