@@ -84,59 +84,110 @@ window.onload = function () {
       // create y variable
       var y = d3.scaleLinear()
           .range([height, 0])
-          //.domain([-2,2]);
           .domain(d3.extent(scatterdata, function(d) { return (d.returnOnEquity); })).nice();
 
-      // add x-axis
-      scatterplot.append("g")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x))
-          .append("text")
-            .attr("class", "label")
-            .attr("x", width)
-            .attr("y", margin.bottom)
-            .style("text-anchor", "end")
-            .text("Beta");
+      // create axis objects
+      var xAxis = d3.axisBottom(x)
+        .ticks(20, "s");
+      var yAxis = d3.axisLeft(y)
+        .ticks(20, "s");
+      // Draw Axis
+      var gX = scatterplot.append('g')
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+      var gY = scatterplot.append('g')
+        //.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+        .call(yAxis);
 
-      // add y-axis
-      scatterplot.append("g")
-          .call(d3.axisLeft(y))
-          .append("text")
-            .attr("class", "label")
-            .attr("transform", "rotate(-90)")
-            .attr("x", 0)
-            .attr("y", -margin.left)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Return on Equity");
+      //
+      // // // add x-axis
+      // var gX = scatterplot.append("g")
+      //     .attr("transform", "translate(0," + height + ")")
+      //     .call(xAxis)
+      //     .append("text")
+      //       .attr("class", "label")
+      //       .attr("x", width)
+      //       .attr("y", margin.bottom)
+      //       .style("text-anchor", "end")
+      //       .text("Beta");
+      //
+      // // add y-axis
+      // var gY = scatterplot.append("g")
+      //     .call(yAxis)
+      //     .append("text")
+      //       .attr("class", "label")
+      //       .attr("transform", "rotate(-90)")
+      //       .attr("x", 0)
+      //       .attr("y", -margin.left)
+      //       .attr("dy", ".71em")
+      //       .style("text-anchor", "end")
+      //       .text("Return on Equity");
 
-    // create dots in the plot for each data point
-      scatterplot.selectAll(".dot")
-        .data(scatterdata)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 6)
-        .attr("cx", function(d) { return x(d.beta); })
-        .attr("cy", function(d) { return y(d.returnOnEquity); })
-        .style("fill", function(d) { return color(3); })
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+            // create a clipping region
+      scatterplot.append("defs").append("clipPath")
+          .attr("id", "clip")
+        .append("rect")
+          .attr("width", width)
+          .attr("height", height);
+          
+        // Pan and zoom
+        var zoom = d3.zoom()
+          .scaleExtent([.5, 20])
+          .extent([[0, 0], [width, height]])
+          .on("zoom", zoomed);
+
+        scatterplot.append("rect")
+              .attr("width", width)
+              .attr("height", height)
+              .style("fill", "none")
+              .style("pointer-events", "all")
+              .call(zoom);
+
+          // create dots in the plot for each data point
+          var points = scatterplot.selectAll(".dot").data(scatterdata)
+          points = points.enter().append("circle")
+            .attr("class", "dot")
+            .attr("r", 6)
+            .attr("cx", function(d) { return x(d.beta); })
+            .attr("cy", function(d) { return y(d.returnOnEquity); })
+            .style("fill", function(d) { return color(3); })
+            .on("mouseover", tip.show)
+            .on("mouseout", tip.hide);
+
+        function zoomed() {
+            // create new scale ojects based on event
+            var new_xScale = d3.event.transform.rescaleX(x);
+            var new_yScale = d3.event.transform.rescaleY(y);
+            // update axes
+            gX.call(xAxis.scale(new_xScale));
+            gY.call(yAxis.scale(new_yScale));
+
+            points.data(scatterdata)
+             .attr('cx', function(d) {return new_xScale(d.beta)})
+             .attr('cy', function(d) {return new_yScale(d.returnOnEquity)});
+        }
+
   };
 
-    // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
-    var input = document.getElementById("inputFirm");
+//     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
+//     var input = document.getElementById("inputFirm");
+//
+//     // Execute a function when the user releases a key on the keyboard
+//     input.addEventListener("keyup", function(event) {
+//     // Cancel the default action, if needed
+//     event.preventDefault();
+//     // Number 13 is the "Enter" key on the keyboard
+//     if (event.keyCode === 13) {
+//       // Trigger the button element with a click
+//       document.getElementById("myBtn").click();
+//     }
+//   });
 
-    // Execute a function when the user releases a key on the keyboard
-    input.addEventListener("keyup", function(event) {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-      // Trigger the button element with a click
-      document.getElementById("myBtn").click();
-    }
-  });
-};
+
+
+
+
+
 
 // function searchFirm() {
 //   var input = document.getElementById("inputFirm").value;
@@ -148,5 +199,5 @@ window.onload = function () {
 //     console.log(elements);
 //     alldata.push(elements);
 //   }
-//   request.send();
-// };
+//   request.send();};
+};
