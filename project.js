@@ -31,7 +31,7 @@ window.onload = function () {
     .offset([-10, 0])
     .html(function (d) {
       return (d.companyName + "<br>" + "Beta: "
-      + d.beta + "<br>" + "Return on Equity: " + d.returnOnEquity+ "%")});
+      + d.beta.toFixed(3) + "<br>" + "Return on Equity: " + d.returnOnEquity.toFixed(3)+ "%")});
 
   // start the tip
   scatterplot.call(tip);
