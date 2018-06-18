@@ -27,6 +27,11 @@ Vandaag heb ik geprobeerd om de scatterplot te creeeren. Echter kon ik maar 100 
 
 GRT!!!
 
-
 # Day 6 - 14 June
 Ik heb vandaag mijn scatterplot afgerond. Het was nog een hele uitdaging omdat ik gisteren tegen veel obstakels aanliep.
+
+# Day 7 - 15 June
+Ik had vandaag college en kreeg te horen dat het goed was om een zoom functie te implementeren. Dit is tevens een interactief element dat als requirement geldt.
+
+# Day 8 - 18 June
+Ik heb vandaag gezorgd voor een zoom functie. Duurde heel lang, maar uiteindelijk is het goed gekomen. Dit was verder ook mijn doel voor vandaag. Ik kan vanaf nu mijn andere 2 visualisaties maken.
