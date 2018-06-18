@@ -72,9 +72,3 @@ body {
     top: 100%;
     left: 0;
 }
-
-.zoom {
-  cursor: move;
-  fill: none;
-  pointer-events: all;
-}
