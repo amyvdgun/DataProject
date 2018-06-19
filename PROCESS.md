@@ -35,3 +35,5 @@ Ik had vandaag college en kreeg te horen dat het goed was om een zoom functie te
 
 # Day 8 - 18 June
 Ik heb vandaag gezorgd voor een zoom functie. Duurde heel lang, maar uiteindelijk is het goed gekomen. Dit was verder ook mijn doel voor vandaag. Ik kan vanaf nu mijn andere 2 visualisaties maken.
+
+# Day 8 - 19 June

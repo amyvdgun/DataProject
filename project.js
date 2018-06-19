@@ -4,8 +4,7 @@
 *
 * project.js
 *
-* Creates interactive visualizations using financial data.
-* https://www.w3schools.com/js/js_ajax_http.asp
+* Creates interactive visualizations using financial data
 */
 
 // execute function when DOM is loaded
@@ -105,7 +104,7 @@ window.onload = function () {
       scatterplot.append("text")
           .attr("class", "label")
           .attr("x", width)
-          .attr("y", height - 20)
+          .attr("y", height - 30)
           .style("text-anchor", "end")
           .text("Beta")
 
@@ -179,12 +178,6 @@ window.onload = function () {
 //       document.getElementById("myBtn").click();
 //     }
 //   });
-
-
-
-
-
-
 
 // function searchFirm() {
 //   var input = document.getElementById("inputFirm").value;
