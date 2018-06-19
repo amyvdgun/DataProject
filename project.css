@@ -32,17 +32,17 @@ h1 {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
 text.label {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
 g.text, g.tick {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -62,14 +62,15 @@ g.text, g.tick {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     border-radius: 2px;
-    font-size: 16px;
-    pointer-events: none !important; 
+    font-size: 14px;
+    pointer-events: none !important;
+
 }
 
 .d3-tip:after {
     box-sizing: border-box;
     display: inline;
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
     line-height: 1;
     color: rgba(0, 0, 0, 0.8);

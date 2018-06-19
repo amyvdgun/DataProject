@@ -42,9 +42,19 @@ window.onload = function() {
 	var yAxis = d3.axisLeft(y);
 
   // define the line
-  var line = d3.line()
+  var line1 = d3.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); })
+    .curve(d3.curveCardinal);
+
+  var line2 = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.low); })
+    .curve(d3.curveCardinal);
+
+  var line3 = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.high); })
     .curve(d3.curveCardinal);
 
   // create new request variable
@@ -92,7 +102,19 @@ window.onload = function() {
           linechart.append("path")
               .data([alldata])
               .attr("class", "line")
-              .attr("d", line);
+              .attr("d", line1);
+
+          // Add the valueline path.
+          linechart.append("path")
+              .data([alldata])
+              .attr("class", "line")
+              .attr("d", line2);
+
+          // Add the valueline path.
+          linechart.append("path")
+              .data([alldata])
+              .attr("class", "line")
+              .attr("d", line3);
 
       };
       request.send();
