@@ -63,6 +63,7 @@ g.text, g.tick {
     color: #fff;
     border-radius: 2px;
     font-size: 16px;
+    pointer-events: none !important; 
 }
 
 .d3-tip:after {
@@ -81,4 +82,21 @@ g.text, g.tick {
     margin: -1px 0 0 0;
     top: 100%;
     left: 0;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }
