@@ -25,8 +25,7 @@ window.onload = function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var parseDate = d3.timeFormat("%Y%m%d").parse;
-
+  var parseDate = d3.timeParse("%Y-%m-%d");
   var x = d3.scaleTime()
 		.range([0, width]);
 
@@ -44,9 +43,9 @@ window.onload = function() {
 
   // define the line
   var line = d3.line()
-    .interpolate("basis")
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.close); });
+    .y(function(d) { return y(d.close); })
+    .curve(d3.curveCardinal);
 
   // create new request variable
   var request = new XMLHttpRequest();
@@ -58,9 +57,42 @@ window.onload = function() {
         // parse all stats data into a json format
         alldata = JSON.parse(request.response);
 
-        console.log(alldata);
+        alldata.forEach(function(d) {
+          d.date = parseDate(d.date);
+          });
 
+          // set the domain for x and y based on the dataset
+          x.domain(d3.extent(alldata, function(d) { return d.date; }));
+          y.domain([d3.min(alldata, function(d) { return d.low; }),
+            d3.max(alldata, function(d) { return d.high; })
+            ]);
 
+          // draw x-axis on desired position and set label
+          linechart.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+              .call(xAxis)
+
+          // draw y-axis on desired position and set label
+          linechart.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+
+          // set axes labels
+          linechart.append("text")
+              .attr("class", "label")
+              .attr("transform", "rotate(-90)")
+              .attr("x", 0)
+              .attr("y", margin.left - 30)
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
+              .text("Price per Share ($)");
+
+          // Add the valueline path.
+          linechart.append("path")
+              .data([alldata])
+              .attr("class", "line")
+              .attr("d", line);
 
       };
       request.send();

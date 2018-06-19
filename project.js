@@ -131,24 +131,19 @@ window.onload = function () {
           .extent([[0, 0], [width, height]])
           .on("zoom", zoomed);
 
-        // create rect for zoom option
-        scatterplot.append("rect")
-              .attr("width", width)
-              .attr("height", height)
-              .style("fill", "none")
-              .style("pointer-events", "all")
-              .call(zoom);
+          // call zoom option
+          scatterplot.call(zoom);
 
-          // create dots in the plot for each data point
-          var points = scatterplot.selectAll(".dot").data(scatterdata)
-          points = points.enter().append("circle")
-            .attr("class", "dot")
-            .attr("r", 6)
-            .attr("cx", function(d) { return x(d.beta); })
-            .attr("cy", function(d) { return y(d.latestEPS); })
-            .style("fill", function(d) { return color(3); })
-            .on("mouseover", tip.show)
-            .on("mouseout", tip.hide);
+        // create dots in the plot for each data point
+        var points = scatterplot.selectAll(".dot").data(scatterdata)
+        points = points.enter().append("circle")
+          .attr("class", "dot")
+          .attr("r", 6)
+          .attr("cx", function(d) { return x(d.beta); })
+          .attr("cy", function(d) { return y(d.latestEPS); })
+          .style("fill", function(d) { return color(3); })
+          .on("mouseover", tip.show)
+          .on("mouseout", tip.hide);
 
         function zoomed() {
             // create new scale ojects based on event
