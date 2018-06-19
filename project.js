@@ -32,7 +32,7 @@ window.onload = function () {
     .offset([-10, 0])
     .html(function (d) {
       return (d.companyName + "<br>" + "Beta: "
-      + d.beta.toFixed(3) + "<br>" + "Return on Equity: " + d.returnOnEquity.toFixed(3)+ "%")});
+      + d.beta.toFixed(3) + "<br>" + "Earnings per Share: " + d.latestEPS.toFixed(3))});
 
   // start the tip
   scatterplot.call(tip);
@@ -63,7 +63,7 @@ window.onload = function () {
 
           //console.log(Object.values(alldata));
           for (firm in alldata) {
-            alldata[firm].stats.returnOnEquity = (alldata[firm].stats.returnOnEquity) / 100;
+            alldata[firm].stats.latestEPS = (alldata[firm].stats.latestEPS) / 100;
             scatterdata.push(alldata[firm].stats);
           }
 
@@ -86,7 +86,7 @@ window.onload = function () {
       // create y variable
       var y = d3.scaleLinear()
           .range([height, 0])
-          .domain(d3.extent(scatterdata, function(d) { return (d.returnOnEquity); })).nice();
+          .domain(d3.extent(scatterdata, function(d) { return (d.latestEPS); })).nice();
 
       // create axes
       var xAxis = d3.axisBottom(x)
@@ -97,24 +97,27 @@ window.onload = function () {
       // set and draw the axes
       var gX = scatterplot.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-        // .append("text")
-        //   .attr("class", "label")
-        //   .attr("x", width)
-        //   .attr("y", margin.bottom)
-        //   .style("text-anchor", "end")
-        //   .text("Beta");
-
+        .call(xAxis);
       var gY = scatterplot.append("g")
         .call(yAxis)
-        // .append("text")
-        //   .attr("class", "label")
-        //   .attr("transform", "rotate(-90)")
-        //   .attr("x", 0)
-        //   .attr("y", -margin.left)
-        //   .attr("dy", ".71em")
-        //   .style("text-anchor", "end")
-        //   .text("Return on Equity");
+
+      // set axes labels
+      scatterplot.append("text")
+          .attr("class", "label")
+          .attr("x", width)
+          .attr("y", height - 20)
+          .style("text-anchor", "end")
+          .text("Beta")
+
+      // set axes labels
+      scatterplot.append("text")
+          .attr("class", "label")
+          .attr("transform", "rotate(-90)")
+          .attr("x", 0)
+          .attr("y", margin.left - 30)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Earnings per Share");
 
       // create a clipping region
       scatterplot.append("defs").append("clipPath")
@@ -143,7 +146,7 @@ window.onload = function () {
             .attr("class", "dot")
             .attr("r", 6)
             .attr("cx", function(d) { return x(d.beta); })
-            .attr("cy", function(d) { return y(d.returnOnEquity); })
+            .attr("cy", function(d) { return y(d.latestEPS); })
             .style("fill", function(d) { return color(3); })
             .on("mouseover", tip.show)
             .on("mouseout", tip.hide);
@@ -158,7 +161,7 @@ window.onload = function () {
 
             points.data(scatterdata)
              .attr('cx', function(d) {return new_xScale(d.beta)})
-             .attr('cy', function(d) {return new_yScale(d.returnOnEquity)});
+             .attr('cy', function(d) {return new_yScale(d.latestEPS)});
         }
 
   };
