@@ -11,7 +11,7 @@
 window.onload = function () {
 
   makeScatterplot();
-
-  makeLinechart();
+  // 
+  // makeLinechart();
 
 };

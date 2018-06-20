@@ -5,7 +5,6 @@
 
 html * {
   font-family: 'Raleway', sans-serif !important;
-  color: black;
 }
 
 h1 {
@@ -75,8 +74,8 @@ g.text, g.tick {
   shape-rendering: crispEdges;
 }
 
-.line {
+path.line {
   fill: none;
-  stroke: steelblue;
+  stroke: black;
   stroke-width: 1.5px;
 }

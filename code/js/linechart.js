@@ -7,13 +7,13 @@
 * Creates an interactive linechart using financial data.
 */
 
-function makeLinechart() {
+function makeLinechart(chosenFirm) {
 
   var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // set the outer and inner width and height
-  var margin = {top: 50, bottom: 50, left: 50, right: 50},
-    width = 550 - margin.left - margin.right,
+  var margin = {top: 50, bottom: 75, left: 100, right: 50},
+    width = 700 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
@@ -35,7 +35,7 @@ function makeLinechart() {
     var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // create x-axis below plot
-	var xAxis = d3.axisBottom(x);
+	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m"));
 
 	// create y-axis to the left of plot
 	var yAxis = d3.axisLeft(y);
@@ -57,7 +57,7 @@ function makeLinechart() {
   var request = new XMLHttpRequest();
 
     // request all stats data from entire string consisting of all stocks
-    request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
+    request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
       request.onload = function () {
 
         // parse all stats data into a json format
@@ -80,6 +80,12 @@ function makeLinechart() {
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
               .call(xAxis)
+                .selectAll("text")
+                 .style("text-anchor", "end")
+                 .attr("dx", "-.8em")
+                 .attr("dy", ".15em")
+                 .attr("transform", "rotate(-65)");
+
 
           // draw y-axis on desired position and set label
           linechart.append("g")
@@ -91,7 +97,7 @@ function makeLinechart() {
               .attr("class", "label")
               .attr("transform", "rotate(-90)")
               .attr("x", 0)
-              .attr("y", margin.left - 30)
+              .attr("y", - 60)
               .attr("dy", ".71em")
               .style("text-anchor", "end")
               .text("Price per Share ($)");

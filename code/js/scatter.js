@@ -12,8 +12,8 @@ function makeScatterplot() {
   var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // set the outer and inner width and height
-  var margin = {top: 50, bottom: 50, left: 50, right: 50},
-    width = 550 - margin.left - margin.right,
+  var margin = {top: 50, bottom: 75, left: 100, right: 50},
+    width = 700 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
@@ -110,7 +110,7 @@ function makeScatterplot() {
       scatterplot.append("text")
           .attr("class", "label")
           .attr("x", width)
-          .attr("y", height - 30)
+          .attr("y", height + 50)
           .style("text-anchor", "end")
           .text("Beta")
 
@@ -119,10 +119,10 @@ function makeScatterplot() {
           .attr("class", "label")
           .attr("transform", "rotate(-90)")
           .attr("x", 0)
-          .attr("y", margin.left - 30)
+          .attr("y", - 75)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Earnings per Share");
+          .text("Earnings per Share ($)");
 
       // create a clipping region
       scatterplot.append("rect")
@@ -150,7 +150,11 @@ function makeScatterplot() {
           .attr("cy", function(d) { return y(d.latestEPS); })
           .style("fill", function(d) { return color(3); })
           .on("mouseover", tip.show)
-          .on("mouseout", tip.hide);
+          .on("mouseout", tip.hide)
+          .on("click", function (d) {
+                   var chosenFirm = d.symbol;
+                   makeLinechart(chosenFirm);
+               });
 
         function zoomed() {
             // create new scale ojects based on event
