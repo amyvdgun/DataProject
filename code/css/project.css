@@ -5,28 +5,11 @@
 
 html * {
   font-family: 'Raleway', sans-serif !important;
-}
-
-.navbar {
-    font: 12px !important;
-}
-
-.navbar .navbar-form .form-control {
-    font: 12px !important;
-}
-
-.form-control:focus {
-    outline: 0 !important;
-    box-shadow: none !important;
-}
-
-.btn:focus {
-    outline: 0 !important;
-    box-shadow: none !important;
+  color: black;
 }
 
 h1 {
-    margin-top: 85px !important;
+    margin-top: 30px !important;
     font-size: 20px;
     text-align: center;
 }

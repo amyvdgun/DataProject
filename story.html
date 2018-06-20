@@ -3,48 +3,54 @@ Amy van der Gun
 10791760
 -->
 
-<!DOCTYPE HTML>
-<meta charset="utf-8">
-<html>
-<head>
-    <title>Stock Checker 5000</title>
+<!doctype html>
+<html lang="en">
 
-    <!-- link to CSS, scripts and bootstrap -->
-    <link rel="stylesheet" type="text/css" href="code/css/project.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/queue.v1.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Include Bootstrap 4.1.1; CSS, jQuery, then Popper.js, then Bootstrap JS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+      <!-- Include d3 scripts and extensions -->
+      <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+      <script src="https://d3js.org/queue.v1.min.js" charset="utf-8"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+
+      <!-- Include other and own CSS, fonts and scripts -->
+      <link rel="stylesheet" type="text/css" href="code/css/project.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <script src="code/js/project.js" type="text/javascript"></script>
+      <!-- <script src="code/js/linechart.js" type="text/javascript"></script> -->
+
 </head>
 <body>
-<body>
-
-  <!-- add navigation bar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-          <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="candle.html">Candlestick Chart</a></li>
-              <li><a href="linechart.html">Line Graph</a></li>
-              <li class="active"><a href="story.html">Story behind the data</a></li>
-              <li><a href="https://www.facebook.com/amy.vandergun">About me</a></li>
-          </ul>
-
-          <!-- add search box -->
-          <div class="navbar-form navbar-right">
-              <div class="input-group">
-                  <input type="text" class="form-control" id="inputFirm" placeholder="Search for a firm">
-                  <div class="input-group-btn">
-                      <button class="btn btn-default" type="submit" onclick="searchFirm()">
-                          <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Stock Checker 5000</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="story.html">Story behind the data</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-sm-0">
+        <input class="form-control form-control-sm" type="search" placeholder="Search for firm" aria-label="Search">
+        <button class="btn btn-sm btn-outline-secondary" type="submit" onclick="searchFirm()">GO</button>
+      </form>
+    </div>
   </nav>
+
   <h1>Stock Checker 5000</h1>
   <p>Data source:</p>
   <p><a href="https://iextrading.com/developer/docs/#getting-started">Data</a> provided for free by IEX. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a></p>
