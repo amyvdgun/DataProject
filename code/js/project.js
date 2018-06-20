@@ -44,7 +44,7 @@ window.onload = function () {
   for (var i = 0; i < 6; i++) {
 
     // load in csv file with ticker symbols
-    d3.csv("tickersymbols" + i + ".csv", function(data) {
+    d3.csv("data/tickersymbols" + i + ".csv", function(data) {
 
       // join all ticker symbols into one string
       var symbols = data.map(a=> a.Ticker).join();
