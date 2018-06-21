@@ -75,7 +75,7 @@ function makeScatterplot() {
   };
 
   function makeScatter(scatterdata){
-      console.log(scatterdata);
+
       // set the range for x
       var x = d3.scaleLinear()
         .range([0, width])
