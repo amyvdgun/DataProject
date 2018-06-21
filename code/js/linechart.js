@@ -60,7 +60,7 @@ function makeLinechart() {
   var request = new XMLHttpRequest();
 
     // request stock data from Apple as default
-    request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
+    request.open("GET", "https://api.iextrading.com/1.0/stock/ba/chart/1m", false);
       request.onload = function () {
 
         // parse data into a json format
@@ -153,11 +153,8 @@ function makeLinechart() {
             focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
             focus.select("text").text(d.close);
           }
-
       };
       request.send();
-
-
 };
 
 function updateLines(chosenFirm) {
@@ -243,7 +240,7 @@ function updateLines(chosenFirm) {
               d = x0 - d0.date > d1.date - x0 ? d1 : d0;
           focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
           focus.select("text").text(d.close);
-        }
+          }
         };
         request.send();
 }

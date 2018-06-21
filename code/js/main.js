@@ -14,6 +14,6 @@ window.onload = function () {
 
   makeLinechart();
 
-  makePiechart();
+  makeBarchart();
 
 };
