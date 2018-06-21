@@ -4,7 +4,7 @@
 *
 * scatter.js
 *
-* Creates interactive visualizations using financial data
+* Creates an interactive scatterplot using financial data.
 */
 
 function makeScatterplot() {
@@ -12,8 +12,8 @@ function makeScatterplot() {
   var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // set the outer and inner width and height
-  var margin = {top: 50, bottom: 75, left: 100, right: 50},
-    width = 700 - margin.left - margin.right,
+  var margin = {top: 50, bottom: 75, left: 100, right: 100},
+    width = 1400 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
@@ -21,21 +21,14 @@ function makeScatterplot() {
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-      .on("hover", function(){
-        console.log("hoi");
-      })
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .on("hover", function(d){
-        console.log("test");
-      });
+      .attr("transform", "translate(" + 100 + "," + 50 + ")");
 
   // add the tooltip and its content
   var tip = d3.tip()
     .attr("class", "d3-tip")
     .offset([-10, 0])
     .html(function (d) {
-
       return (d.companyName + "<br>" + "Beta: "
       + d.beta.toFixed(3) + "<br>" + "Earnings per Share: " + d.latestEPS.toFixed(3)+"M")});
 
@@ -136,8 +129,6 @@ function makeScatterplot() {
           .extent([[0, 0], [width, height]])
           .on("zoom", zoomed);
 
-          console.log(scatterplot);
-
           // call zoom option
           scatterplot.call(zoom);
 
@@ -153,7 +144,7 @@ function makeScatterplot() {
           .on("mouseout", tip.hide)
           .on("click", function (d) {
                    var chosenFirm = d.symbol;
-                   makeLinechart(chosenFirm);
+                   updateLines(chosenFirm);
                });
 
         function zoomed() {

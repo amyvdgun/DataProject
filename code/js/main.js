@@ -4,14 +4,16 @@
 *
 * main.js
 *
-* Creates interactive visualizations using financial data
+* Creates interactive visualizations using financial data.
 */
 
 // execute function when DOM is loaded
 window.onload = function () {
 
   makeScatterplot();
-  // 
-  // makeLinechart();
+
+  makeLinechart();
+
+  makePiechart();
 
 };

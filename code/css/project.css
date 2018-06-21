@@ -74,8 +74,29 @@ g.text, g.tick {
   shape-rendering: crispEdges;
 }
 
-path.line {
+path.line1 {
   fill: none;
   stroke: black;
   stroke-width: 1.5px;
+}
+
+path.line2 {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+path.line3 {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
 }
