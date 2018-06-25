@@ -7,14 +7,16 @@
 * Creates interactive visualizations using financial data.
 */
 
+// set inner and outer width of svg
+var marginCandle = {top: 50, bottom: 75, left: 100, right: 100},
+  widthCandle = 700 - marginCandle.left - marginCandle.right,
+  heightCandle = 600 - marginCandle.top - marginCandle.bottom;
+
+var alldataCandle,candlestick,xCandle,yCandle;
+
+var parseDate = d3.timeParse("%Y-%m-%d");
+
 function makeCandlestick() {
-
-  // set inner and outer width of svg
-  var margin = {top: 50, bottom: 75, left: 100, right: 100},
-    width = 700 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
-
-  var parseDate = d3.timeParse("%Y-%m-%d");
 
   // create new request variable
   var request = new XMLHttpRequest();
@@ -24,49 +26,47 @@ function makeCandlestick() {
       request.onload = function () {
 
         // parse data into a json format
-        alldata = JSON.parse(request.response);
+        alldataCandle = JSON.parse(request.response);
 
         var alldays = [];
 
         // make sure date variable really is a date to the computer
-        alldata.forEach(function(d) {
+        alldataCandle.forEach(function(d) {
           d.date = parseDate(d.date);
           alldays.push(d.date);
           });
 
-          console.log(alldays);
+        xCandle = techan.scale.financetime()
+          .range([0, widthCandle]);
 
-        var x = techan.scale.financetime()
-          .range([0, width]);
+        yCandle = d3.scaleLinear()
+          .range([heightCandle, 0]);
 
-        var y = d3.scaleLinear()
-          .range([height, 0]);
+        candlestick = techan.plot.candlestick()
+          .xScale(xCandle)
+          .yScale(yCandle);
 
-        var candlestick = techan.plot.candlestick()
-          .xScale(x)
-          .yScale(y);
+        var xAxisCandle = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length)
+            .scale(xCandle);
 
-        var xAxis = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length)
-            .scale(x);
-
-        var yAxis = d3.axisLeft()
-            .scale(y);
+        var yAxisCandle = d3.axisLeft()
+            .scale(yCandle);
 
         var candlestickChart = d3.select("#candlestick").append("svg")
-           .attr("width", width + margin.left + margin.right)
-           .attr("height", height + margin.top + margin.bottom)
+           .attr("width", widthCandle + marginCandle.left + marginCandle.right)
+           .attr("height", heightCandle + marginCandle.top + marginCandle.bottom)
            .append("g")
-           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+           .attr("transform", "translate(" + marginCandle.left + "," + marginCandle.top + ")");
 
         candlestickChart.append("g")
                 .attr("class", "candlestick");
 
         candlestickChart.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")");
+                .attr("class", "x axis candle")
+                .attr("transform", "translate(0," + heightCandle + ")");
 
         candlestickChart.append("g")
-                .attr("class", "y axis")
+                .attr("class", "y axis candle")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
@@ -74,22 +74,19 @@ function makeCandlestick() {
                   .style("text-anchor", "end")
                   .text("Price ($)");
 
-                  x.domain(alldays);
-                  console.log(d3.extent(alldata, function(d) { return d.date; }));
-                  y.domain([d3.min(alldata, function(d) { return d.low; }),
-                    d3.max(alldata, function(d) { return d.high; })
+                  xCandle.domain(alldays);
+                  yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
+                    d3.max(alldataCandle, function(d) { return d.high; })
                     ]);
-                  candlestickChart.selectAll("g.candlestick").datum(alldata).call(candlestick);
-                  candlestickChart.selectAll("g.x.axis").call(xAxis)
+
+                  candlestickChart.selectAll("g.candlestick").datum(alldataCandle).call(candlestick);
+                  candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
                     .selectAll("text")
                      .style("text-anchor", "end")
                      .attr("dx", "-.8em")
                      .attr("dy", ".15em")
                      .attr("transform", "rotate(-65)");
-                  candlestickChart.selectAll("g.y.axis").call(yAxis);
-
-
-
+                  candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
       };
       request.send();
 };
@@ -97,17 +94,37 @@ function makeCandlestick() {
 function updateCandles(chosenFirm) {
 
     // select the linechart
-    var chart = d3.select("#candlestick").select("svg").select("g");
+    var chartCandle = d3.select("#candlestick").select("svg").select("g");
+
     // create new request variable
     var request = new XMLHttpRequest();
-
-
 
     // request stock data from the chosen firm clicked on the scatterplot
     request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
       request.onload = function() {
+        // parse all stats data into a json format
+        alldataCandle = JSON.parse(request.response);
+
+        // make sure date variable really is a date to the computer
+        alldataCandle.forEach(function(d) {
+          d.date = parseDate(d.date);
+          });
+
+        yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
+          d3.max(alldataCandle, function(d) { return d.high; })
+          ]);
+
+        // create y-axis to the left of plot
+        var yAxisCandle = d3.axisLeft(yCandle);
+
+        // call y axis and add transition
+        d3.select(".y.axis.candle")
+             .transition()
+             .duration(1000)
+             .call(yAxisCandle)
 
 
+        chartCandle.selectAll(".candlestick").datum(alldataCandle).call(candlestick);
 
       };
       request.send();

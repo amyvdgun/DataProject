@@ -35,12 +35,6 @@ function makeLinechart() {
 	y = d3.scaleLinear()
 		.range([height, 0]);
 
-  // create x-axis below plot
-	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m"));
-
-	// create y-axis to the left of plot
-	var yAxis = d3.axisLeft(y);
-
   // define first line
   line1 = d3.line()
     .x(function(d) { return x(d.date); })
@@ -56,9 +50,12 @@ function makeLinechart() {
         // parse data into a json format
         alldata = JSON.parse(request.response);
 
+        var alldays = [];
+
         // make sure date variable really is a date to the computer
         alldata.forEach(function(d) {
           d.date = parseDate(d.date);
+          alldays.push(d.date);
           });
 
           // set the domain for x and y based on the dataset
@@ -66,6 +63,13 @@ function makeLinechart() {
           y.domain([d3.min(alldata, function(d) { return d.low; }),
             d3.max(alldata, function(d) { return d.high; })
             ]);
+
+            // create x-axis below plot
+          	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length);
+
+          	// create y-axis to the left of plot
+          	var yAxis = d3.axisLeft(y);
+
 
           // draw x-axis on desired position
           linechart.append("g")
@@ -121,15 +125,14 @@ function makeLinechart() {
               .on("mouseout", function() {
                 focus.style("display", "none"); })
               .on("mousemove", mousemove);
-              
+
           function mousemove() {
             var x0 = x.invert(d3.mouse(this)[0]),
                 i = bisectDate(alldata, x0, 1),
                 d0 = alldata[i - 1],
                 d1 = alldata[i],
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-            console.log(d.date);
-            console.log(d.close);
+
             focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
             focus.select("text").text(d.close);
           }
