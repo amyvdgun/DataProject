@@ -12,8 +12,15 @@ window.onload = function () {
 
   makeScatterplot();
 
-  makeLinechart();
+  // var data = makeScatterplot();
+  // console.log(data);
+  //
+  // makeScatter(data);
 
-  makeBarchart();
 
+  //makeLinechart();
+
+  //makeBarchart();
+
+  makeCandlestick()
 };

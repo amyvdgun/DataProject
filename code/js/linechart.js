@@ -13,7 +13,7 @@ var margin = {top: 50, bottom: 75, left: 100, right: 100},
   height = 600 - margin.top - margin.bottom;
 
 // initialize general variables
-var line1,line2,line3,x,y;
+var line1,x,y;
 var parseDate = d3.timeParse("%Y-%m-%d");
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
@@ -46,15 +46,15 @@ function makeLinechart() {
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
 
-  // define second line
-  line2 = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.low); });
-
-  // define third line
-  line3 = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.high); });
+  // // define second line
+  // line2 = d3.line()
+  //   .x(function(d) { return x(d.date); })
+  //   .y(function(d) { return y(d.low); });
+  //
+  // // define third line
+  // line3 = d3.line()
+  //   .x(function(d) { return x(d.date); })
+  //   .y(function(d) { return y(d.high); });
 
   // create new request variable
   var request = new XMLHttpRequest();
@@ -110,19 +110,19 @@ function makeLinechart() {
               .attr("d", line1)
               .style("stroke", "green");
 
-          // add the line path
-          linechart.append("path")
-              .data([alldata])
-              .attr("class", "line2")
-              .attr("d", line2)
-              .style("stroke", "brown");
-
-          // add the line path
-          linechart.append("path")
-              .data([alldata])
-              .attr("class", "line3")
-              .attr("d", line3)
-              .style("stroke", "yellow");
+          // // add the line path
+          // linechart.append("path")
+          //     .data([alldata])
+          //     .attr("class", "line2")
+          //     .attr("d", line2)
+          //     .style("stroke", "brown");
+          //
+          // // add the line path
+          // linechart.append("path")
+          //     .data([alldata])
+          //     .attr("class", "line3")
+          //     .attr("d", line3)
+          //     .style("stroke", "yellow");
 
           var focus = linechart.append("g")
               .attr("class", "focus")
@@ -198,19 +198,19 @@ function updateLines(chosenFirm) {
           .attr("d", line1)
           .style("stroke", "green");
 
-        // update line
-        chart.selectAll(".line2")
-          .data([alldata])
-          .transition().duration(1000)
-          .attr("d", line2)
-          .style("stroke", "brown");
-
-        // update line
-        chart.selectAll(".line3")
-          .data([alldata])
-          .transition().duration(1000)
-          .attr("d", line3)
-          .style("stroke", "yellow");
+        // // update line
+        // chart.selectAll(".line2")
+        //   .data([alldata])
+        //   .transition().duration(1000)
+        //   .attr("d", line2)
+        //   .style("stroke", "brown");
+        //
+        // // update line
+        // chart.selectAll(".line3")
+        //   .data([alldata])
+        //   .transition().duration(1000)
+        //   .attr("d", line3)
+        //   .style("stroke", "yellow");
 
         var focus = chart.append("g")
             .attr("class", "focus")

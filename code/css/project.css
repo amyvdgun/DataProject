@@ -80,7 +80,7 @@ path.line1 {
   stroke-width: 1.5px;
 }
 
-path.line2 {
+/* path.line2 {
   fill: none;
   stroke: black;
   stroke-width: 1.5px;
@@ -90,4 +90,22 @@ path.line3 {
   fill: none;
   stroke: black;
   stroke-width: 1.5px;
+} */
+
+path.candle {
+    stroke: #000000;
+}
+
+path.candle.body {
+    stroke-width: 0;
+}
+
+path.candle.up {
+    fill: #00AA00;
+    stroke: #00AA00;
+}
+
+path.candle.down {
+    fill: #FF0000;
+    stroke: #FF0000;
 }

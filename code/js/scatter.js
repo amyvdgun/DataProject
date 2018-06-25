@@ -67,7 +67,9 @@ function makeScatterplot() {
 
           // create scatter if all data has been loaded
           if (scatterdata.length > 500) {
+          //  return scatterdata;
             makeScatter(scatterdata);
+            makeLinechart();
           };
         };
         request.send();
