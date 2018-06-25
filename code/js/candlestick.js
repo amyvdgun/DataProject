@@ -80,8 +80,32 @@ function makeCandlestick() {
                     d3.max(alldata, function(d) { return d.high; })
                     ]);
                   candlestickChart.selectAll("g.candlestick").datum(alldata).call(candlestick);
-                  candlestickChart.selectAll("g.x.axis").call(xAxis);
+                  candlestickChart.selectAll("g.x.axis").call(xAxis)
+                    .selectAll("text")
+                     .style("text-anchor", "end")
+                     .attr("dx", "-.8em")
+                     .attr("dy", ".15em")
+                     .attr("transform", "rotate(-65)");
                   candlestickChart.selectAll("g.y.axis").call(yAxis);
+
+
+
+      };
+      request.send();
+};
+
+function updateCandles(chosenFirm) {
+
+    // select the linechart
+    var chart = d3.select("#candlestick").select("svg").select("g");
+    // create new request variable
+    var request = new XMLHttpRequest();
+
+
+
+    // request stock data from the chosen firm clicked on the scatterplot
+    request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
+      request.onload = function() {
 
 
 

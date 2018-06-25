@@ -13,7 +13,7 @@ var margin = {top: 50, bottom: 75, left: 100, right: 100},
   height = 600 - margin.top - margin.bottom;
 
 // initialize general variables
-var line1,x,y;
+var line1,x,y,alldata;
 var parseDate = d3.timeParse("%Y-%m-%d");
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
@@ -50,7 +50,7 @@ function makeLinechart() {
   var request = new XMLHttpRequest();
 
     // request stock data from Apple as default
-    request.open("GET", "https://api.iextrading.com/1.0/stock/ba/chart/1m", false);
+    request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
       request.onload = function () {
 
         // parse data into a json format
@@ -80,7 +80,7 @@ function makeLinechart() {
 
           // draw y-axis on desired position
           linechart.append("g")
-            .attr("class", "y axis")
+            .attr("class", "y axis linechart")
             .call(yAxis)
 
           // set axis label
@@ -100,20 +100,6 @@ function makeLinechart() {
               .attr("d", line1)
               .style("stroke", "green");
 
-          // // add the line path
-          // linechart.append("path")
-          //     .data([alldata])
-          //     .attr("class", "line2")
-          //     .attr("d", line2)
-          //     .style("stroke", "brown");
-          //
-          // // add the line path
-          // linechart.append("path")
-          //     .data([alldata])
-          //     .attr("class", "line3")
-          //     .attr("d", line3)
-          //     .style("stroke", "yellow");
-
           var focus = linechart.append("g")
               .attr("class", "focus")
               .style("display", "none");
@@ -130,22 +116,30 @@ function makeLinechart() {
               .attr("width", width)
               .attr("height", height)
               .attr("opacity", 0)
-              .on("mouseover", function() { focus.style("display", null); })
-              .on("mouseout", function() { focus.style("display", "none"); })
+              .on("mouseover", function() {
+                focus.style("display", null); })
+              .on("mouseout", function() {
+                focus.style("display", "none"); })
               .on("mousemove", mousemove);
-
+              
           function mousemove() {
             var x0 = x.invert(d3.mouse(this)[0]),
                 i = bisectDate(alldata, x0, 1),
                 d0 = alldata[i - 1],
                 d1 = alldata[i],
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            console.log(d.date);
+            console.log(d.close);
             focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
             focus.select("text").text(d.close);
           }
+
       };
       request.send();
+
 };
+
+
 
 function updateLines(chosenFirm) {
 
@@ -176,7 +170,7 @@ function updateLines(chosenFirm) {
         var yAxis = d3.axisLeft(y);
 
         // call y axis and add transition
-        d3.select(".y.axis")
+        d3.select(".y.axis.linechart")
              .transition()
              .duration(1000)
              .call(yAxis)
@@ -187,50 +181,6 @@ function updateLines(chosenFirm) {
           .transition().duration(1000)
           .attr("d", line1)
           .style("stroke", "green");
-
-        // // update line
-        // chart.selectAll(".line2")
-        //   .data([alldata])
-        //   .transition().duration(1000)
-        //   .attr("d", line2)
-        //   .style("stroke", "brown");
-        //
-        // // update line
-        // chart.selectAll(".line3")
-        //   .data([alldata])
-        //   .transition().duration(1000)
-        //   .attr("d", line3)
-        //   .style("stroke", "yellow");
-
-        var focus = chart.append("g")
-            .attr("class", "focus")
-            .style("display", "none");
-
-        focus.append("circle")
-            .attr("r", 4.5);
-
-        focus.append("text")
-            .attr("x", 9)
-            .attr("dy", ".35em");
-
-        chart.append("rect")
-            .attr("class", "overlay")
-            .attr("width", width)
-            .attr("height", height)
-            .attr("opacity", 0)
-            .on("mouseover", function() { focus.style("display", null); })
-            .on("mouseout", function() { focus.style("display", "none"); })
-            .on("mousemove", mousemove);
-
-        function mousemove() {
-          var x0 = x.invert(d3.mouse(this)[0]),
-              i = bisectDate(alldata, x0, 1),
-              d0 = alldata[i - 1],
-              d1 = alldata[i],
-              d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-          focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
-          focus.select("text").text(d.close);
-          }
         };
         request.send();
 }
