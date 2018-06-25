@@ -13,7 +13,7 @@ function makeScatterplot() {
 
   // set the outer and inner width and height
   var margin = {top: 50, bottom: 75, left: 100, right: 100},
-    width = 1400 - margin.left - margin.right,
+    width = 1200 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
   // add the SVG element and set characteristics
@@ -70,6 +70,7 @@ function makeScatterplot() {
           //  return scatterdata;
             makeScatter(scatterdata);
             makeLinechart();
+            makeCandlestick();
           };
         };
         request.send();

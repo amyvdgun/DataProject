@@ -26,10 +26,15 @@ function makeCandlestick() {
         // parse data into a json format
         alldata = JSON.parse(request.response);
 
+        var alldays = [];
+
         // make sure date variable really is a date to the computer
         alldata.forEach(function(d) {
           d.date = parseDate(d.date);
+          alldays.push(d.date);
           });
+
+          console.log(alldays);
 
         var x = techan.scale.financetime()
           .range([0, width]);
@@ -42,13 +47,13 @@ function makeCandlestick() {
           .xScale(x)
           .yScale(y);
 
-        var xAxis = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m"))
+        var xAxis = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length)
             .scale(x);
 
         var yAxis = d3.axisLeft()
             .scale(y);
 
-        var candlestickChart = d3.select("candlestick").append("svg")
+        var candlestickChart = d3.select("#candlestick").append("svg")
            .attr("width", width + margin.left + margin.right)
            .attr("height", height + margin.top + margin.bottom)
            .append("g")
@@ -70,7 +75,8 @@ function makeCandlestick() {
                   .style("text-anchor", "end")
                   .text("Price ($)");
 
-                  x.domain(d3.extent(alldata, function(d) { return d.date; }));
+                  x.domain(alldays);
+                  console.log(d3.extent(alldata, function(d) { return d.date; }));
                   y.domain([d3.min(alldata, function(d) { return d.low; }),
                     d3.max(alldata, function(d) { return d.high; })
                     ]);

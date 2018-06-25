@@ -22,5 +22,5 @@ window.onload = function () {
 
   //makeBarchart();
 
-  makeCandlestick()
+  //makeCandlestick()
 };
