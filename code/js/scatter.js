@@ -128,6 +128,7 @@ function makeScatterplot() {
         // set zoom function
         var zoom = d3.zoom()
           .scaleExtent([1, 20])
+          .translateExtent([[0, 0], [width, height]])
           .extent([[0, 0], [width, height]])
           .on("zoom", zoomed);
 

@@ -48,7 +48,7 @@ function makeCandlestick() {
         var yAxis = d3.axisLeft()
             .scale(y);
 
-        var candlestickChart = d3.select("body").append("svg")
+        var candlestickChart = d3.select("candlestick").append("svg")
            .attr("width", width + margin.left + margin.right)
            .attr("height", height + margin.top + margin.bottom)
            .append("g")
