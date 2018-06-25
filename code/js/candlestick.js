@@ -42,7 +42,6 @@ function makeCandlestick() {
         var y = d3.scaleLinear()
           .range([height, 0]);
 
-
         var candlestick = techan.plot.candlestick()
           .xScale(x)
           .yScale(y);

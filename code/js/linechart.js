@@ -46,16 +46,6 @@ function makeLinechart() {
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
 
-  // // define second line
-  // line2 = d3.line()
-  //   .x(function(d) { return x(d.date); })
-  //   .y(function(d) { return y(d.low); });
-  //
-  // // define third line
-  // line3 = d3.line()
-  //   .x(function(d) { return x(d.date); })
-  //   .y(function(d) { return y(d.high); });
-
   // create new request variable
   var request = new XMLHttpRequest();
 
