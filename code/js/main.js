@@ -10,17 +10,36 @@
 // execute function when DOM is loaded
 window.onload = function () {
 
+  var chosenFirm;
+  var chosenName;
+
   makeScatterplot();
 
-  // var data = makeScatterplot();
-  // console.log(data);
-  //
-  // makeScatter(data);
+  makeLinechart();
 
+  makeCandlestick();
 
-  //makeLinechart();
+  updateButtons("aapl", "Apple Inc.");
 
-  //makeBarchart();
-
-  //makeCandlestick()
 };
+
+function updateButtons(chosenFirm, chosenName) {
+  $( "#1month" ).on( "click", function() {
+      console.log( "click" );
+      var chosenTime = this.value;
+      updateLines(chosenFirm, chosenName, chosenTime);
+  });
+
+  $( "#3months" ).on( "click", function() {
+      console.log( "click" );
+      var chosenTime = this.value;
+      updateLines(chosenFirm, chosenName, chosenTime);
+  });
+
+  $( "#6months" ).on( "click", function() {
+      console.log( "click" );
+      var chosenTime = this.value;
+      updateLines(chosenFirm, chosenName, chosenTime);
+  });
+
+}

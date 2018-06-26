@@ -69,8 +69,6 @@ function makeScatterplot() {
           if (scatterdata.length > 500) {
           //  return scatterdata;
             makeScatter(scatterdata);
-            makeLinechart();
-            makeCandlestick();
           };
         };
         request.send();
@@ -136,10 +134,12 @@ function makeScatterplot() {
           // call zoom option
           scatterplot.call(zoom);
 
+
         // create dots in the plot for each data point
         var points = scatterplot.selectAll(".dot").data(scatterdata)
         points = points.enter().append("circle")
           .attr("class", "dot")
+          .attr("id", function(d) {return d.symbol})
           .attr("r", 6)
           .attr("cx", function(d) { return x(d.beta); })
           .attr("cy", function(d) { return y(d.latestEPS); })
@@ -147,10 +147,11 @@ function makeScatterplot() {
           .on("mouseover", tip.show)
           .on("mouseout", tip.hide)
           .on("click", function (d) {
-                  var chosenName = d.companyName;
-                   var chosenFirm = d.symbol;
-                   updateLines(chosenFirm, chosenName);
-                   updateCandles(chosenFirm, chosenName);
+                var chosenName = d.companyName;
+                var chosenFirm = d.symbol;
+                 updateLines(chosenFirm, chosenName, "1m");
+                 updateCandles(chosenFirm, chosenName);
+                 updateButtons(chosenFirm, chosenName);
                });
 
         function zoomed() {

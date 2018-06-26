@@ -18,7 +18,6 @@ var parseDate = d3.timeParse("%Y-%m-%d");
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 function makeLinechart() {
-
   // add the SVG element and set characteristics
   var linechart = d3.select("#linechart")
       .append("svg")
@@ -69,7 +68,7 @@ function makeLinechart() {
             ]);
 
             // create x-axis below plot
-          	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length);
+          	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(30);
 
           	// create y-axis to the left of plot
           	var yAxis = d3.axisLeft(y);
@@ -77,7 +76,7 @@ function makeLinechart() {
 
           // draw x-axis on desired position
           linechart.append("g")
-            .attr("class", "x axis")
+            .attr("class", "x axis linechart")
             .attr("transform", "translate(0," + height + ")")
               .call(xAxis)
                 .selectAll("text")
@@ -146,9 +145,7 @@ function makeLinechart() {
 
 };
 
-
-
-function updateLines(chosenFirm, chosenName) {
+function updateLines(chosenFirm, chosenName, chosenTime) {
 
     // select the linechart
     var chart = d3.select("#linechart").select("svg").select("g");
@@ -160,7 +157,7 @@ function updateLines(chosenFirm, chosenName) {
     var request = new XMLHttpRequest();
 
     // request stock data from the chosen firm clicked on the scatterplot
-    request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
+    request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/"+chosenTime, false);
       request.onload = function() {
 
         // parse all stats data into a json format
@@ -169,21 +166,35 @@ function updateLines(chosenFirm, chosenName) {
         // make sure date variable really is a date to the computer
         alldata.forEach(function(d) {
           d.date = parseDate(d.date);
-          });
+        });
+
+        // set the domain for x and y based on the dataset
+        x.domain(d3.extent(alldata, function(d) {
+          console.log(d);
+          return d.date; }));
 
         // set the new domain for y
         y.domain([d3.min(alldata, function(d) { return d.low; }),
             d3.max(alldata, function(d) { return d.high; })
             ]);
 
+        // create x-axis below plot
+        var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(30);
+
         // create y-axis to the left of plot
         var yAxis = d3.axisLeft(y);
+
+        // call y axis and add transition
+        d3.select(".x.axis.linechart")
+             .transition()
+             .duration(1000)
+             .call(xAxis);
 
         // call y axis and add transition
         d3.select(".y.axis.linechart")
              .transition()
              .duration(1000)
-             .call(yAxis)
+             .call(yAxis);
 
         // update line
         chart.selectAll(".line1")
