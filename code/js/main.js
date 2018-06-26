@@ -30,19 +30,16 @@ window.onload = function () {
 
 function updateButtons(chosenFirm, chosenName) {
   $( "#1month" ).on( "click", function() {
-      console.log( "click" );
       var chosenTime = this.value;
       updateLines(chosenFirm, chosenName, chosenTime);
   });
 
   $( "#3months" ).on( "click", function() {
-      console.log( "click" );
       var chosenTime = this.value;
       updateLines(chosenFirm, chosenName, chosenTime);
   });
 
   $( "#6months" ).on( "click", function() {
-      console.log( "click" );
       var chosenTime = this.value;
       updateLines(chosenFirm, chosenName, chosenTime);
   });

@@ -87,20 +87,35 @@ function makeCandlestick() {
         candlestickChart.append("g")
             .attr("class", "y axis candle")
 
-        let superX = 400;
+        let legendX = 500;
 
-        var superG = candlestickChart.append("g")
-            superG.append("rect")
-            .attr("x", superX)
-            .attr("y", 0)
-            .attr("height", 20)
-            .attr("width", 20)
-            .style("fill", "red")
+        var legend1 = candlestickChart.append("g")
+            legend1.append("rect")
+            .attr("x", legendX)
+            .attr("y", + 20)
+            .attr("height", 10)
+            .attr("width", 10)
+            .style("fill", "red");
 
-        superG.append("text")
+        legend1.append("text")
+            .attr("id", "legend1")
+            .attr("y", 30)
+            .attr("x", legendX + 20)
+            .text("Down ($)");
+
+        var legend2 = candlestickChart.append("g")
+            legend2.append("rect")
+            .attr("x", legendX)
             .attr("y", 0)
-            .attr("x", superX + 30)
-            .text("htest")
+            .attr("height", 10)
+            .attr("width", 10)
+            .style("fill", "green");
+
+        legend2.append("text")
+            .attr("id", "legend2")
+            .attr("y", 10)
+            .attr("x", legendX + 20)
+            .text("Up ($)");
 
         xCandle.domain(alldays);
         yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
@@ -132,7 +147,7 @@ function updateCandles(chosenFirm, chosenName) {
     document.getElementById("candlestickTitle").innerHTML = "High, Low, Open, Close for  " + chosenName;
 
     // request stock data from the chosen firm clicked on the scatterplot
-    request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
+    request.open("GET", "https://api.iextrading.com/1.0/stock/" + chosenFirm + "/chart/1m", false);
       request.onload = function() {
         // parse all stats data into a json format
         alldataCandle = JSON.parse(request.response);
