@@ -84,9 +84,11 @@ path.candle.down {
 }
 
 text#legend1 {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 12px;
 }
 
 text#legend2 {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 12px;
 }
