@@ -12,8 +12,8 @@ var marginCandle = {top: 50, bottom: 75, left: 100, right: 100},
   widthCandle = 700 - marginCandle.left - marginCandle.right,
   heightCandle = 600 - marginCandle.top - marginCandle.bottom;
 
+// initialize general variables and function
 var alldataCandle,candlestick,xCandle,yCandle;
-
 var parseDate = d3.timeParse("%Y-%m-%d");
 
 function makeCandlestick() {
@@ -27,6 +27,7 @@ function makeCandlestick() {
 
         var chosenName = "Apple Inc.";
 
+        // set interactive title with Apple as default
         document.getElementById("candlestickTitle").innerHTML = "High, Low, Open, Close for  " + chosenName;
 
         // parse data into a json format
@@ -80,17 +81,11 @@ function makeCandlestick() {
             .text("Prices per Share ($)");
 
         candlestickChart.append("g")
-                .attr("class", "y axis candle")
-                .append("text")
-                .attr("transform", "rotate(-90)")
-                .attr("y", 6)
-                  .attr("dy", ".71em")
-                  .style("text-anchor", "end")
-                  .text("Price ($)");
+            .attr("class", "y axis candle")
 
-          let superX = 400;
+        let superX = 400;
 
-          var superG = candlestickChart.append("g")
+        var superG = candlestickChart.append("g")
             superG.append("rect")
             .attr("x", superX)
             .attr("y", 0)
@@ -98,25 +93,25 @@ function makeCandlestick() {
             .attr("width", 20)
             .style("fill", "red")
 
-          superG.append("text")
+        superG.append("text")
             .attr("y", 0)
             .attr("x", superX + 30)
             .text("htest")
 
-          xCandle.domain(alldays);
-          yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
-            d3.max(alldataCandle, function(d) { return d.high; })
-            ]);
+        xCandle.domain(alldays);
+        yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
+          d3.max(alldataCandle, function(d) { return d.high; })
+          ]);
 
-          candlestickChart.selectAll("g.candlestick").datum(alldataCandle).call(candlestick);
+        candlestickChart.selectAll("g.candlestick").datum(alldataCandle).call(candlestick);
 
-          candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
-            .selectAll("text")
-             .style("text-anchor", "end")
-             .attr("dx", "-.8em")
-             .attr("dy", ".15em")
-             .attr("transform", "rotate(-65)");
-          candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
+        candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
+          .selectAll("text")
+           .style("text-anchor", "end")
+           .attr("dx", "-.8em")
+           .attr("dy", ".15em")
+           .attr("transform", "rotate(-65)");
+        candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
       };
       request.send();
 };

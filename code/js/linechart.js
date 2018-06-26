@@ -12,12 +12,13 @@ var margin = {top: 50, bottom: 75, left: 100, right: 100},
   width = 700 - margin.left - margin.right,
   height = 600 - margin.top - margin.bottom;
 
-// initialize general variables
+// initialize general variables and functions
 var line1,x,y,alldata;
 var parseDate = d3.timeParse("%Y-%m-%d");
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 function makeLinechart() {
+  
   // add the SVG element and set characteristics
   var linechart = d3.select("#linechart")
       .append("svg")

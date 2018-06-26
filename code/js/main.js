@@ -10,15 +10,20 @@
 // execute function when DOM is loaded
 window.onload = function () {
 
+  // initialize general variables
   var chosenFirm;
   var chosenName;
 
+  // create scatterplot
   makeScatterplot();
 
+  // create line chart
   makeLinechart();
 
+  // create candlestick chart
   makeCandlestick();
 
+  // update the buttons of the line chart using the default firm Apple
   updateButtons("aapl", "Apple Inc.");
 
 };
