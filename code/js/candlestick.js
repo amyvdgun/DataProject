@@ -5,6 +5,9 @@
 * candlestick.js
 *
 * Creates interactive visualizations using financial data.
+*
+* Inspiration:
+* http://bl.ocks.org/andredumas/27c4a333b0e0813e093d
 */
 
 // set inner and outer width of svg
@@ -51,11 +54,12 @@ function makeCandlestick() {
           .xScale(xCandle)
           .yScale(yCandle);
 
-        var xAxisCandle = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m")).ticks(alldays.length)
-            .scale(xCandle);
+        var xAxisCandle = d3.axisBottom().tickFormat(d3.timeFormat("%d/%m"))
+          .ticks(alldays.length)
+          .scale(xCandle);
 
         var yAxisCandle = d3.axisLeft()
-            .scale(yCandle);
+          .scale(yCandle);
 
         var candlestickChart = d3.select("#candlestick").append("svg")
            .attr("width", widthCandle + marginCandle.left + marginCandle.right)

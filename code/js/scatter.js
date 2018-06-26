@@ -5,6 +5,10 @@
 * scatter.js
 *
 * Creates an interactive scatterplot using financial data.
+*
+* Inspiration:
+* https://bl.ocks.org/aleereza/d2be3d62a09360a770b79f4e5527eea8
+* https://bl.ocks.org/EfratVil/d956f19f2e56a05c31fb6583beccfda7
 */
 
 function makeScatterplot() {

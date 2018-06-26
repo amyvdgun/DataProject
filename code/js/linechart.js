@@ -5,6 +5,9 @@
 * linechart.js
 *
 * Creates an interactive linechart using financial data.
+*
+* Inspiration:
+* https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
 */
 
 // set inner and outer width of svg
@@ -18,7 +21,7 @@ var parseDate = d3.timeParse("%Y-%m-%d");
 var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 function makeLinechart() {
-  
+
   // add the SVG element and set characteristics
   var linechart = d3.select("#linechart")
       .append("svg")
