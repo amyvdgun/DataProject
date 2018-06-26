@@ -47,6 +47,10 @@ function makeLinechart() {
     request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
       request.onload = function () {
 
+        var chosenName = "Apple Inc.";
+        // create interactive title
+        document.getElementById("linechartTitle").innerHTML = "Close prices for " + chosenName;
+
         // parse data into a json format
         alldata = JSON.parse(request.response);
 
@@ -95,7 +99,7 @@ function makeLinechart() {
               .attr("y", - 60)
               .attr("dy", ".71em")
               .style("text-anchor", "end")
-              .text("Price per Share ($)");
+              .text("Close Price per Share ($)");
 
           // add the line path
           linechart.append("path")
@@ -144,10 +148,13 @@ function makeLinechart() {
 
 
 
-function updateLines(chosenFirm) {
+function updateLines(chosenFirm, chosenName) {
 
     // select the linechart
     var chart = d3.select("#linechart").select("svg").select("g");
+
+    // create interactive title
+    document.getElementById("linechartTitle").innerHTML = "Close prices for " + chosenName;
 
     // create new request variable
     var request = new XMLHttpRequest();

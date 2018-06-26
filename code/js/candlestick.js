@@ -25,6 +25,10 @@ function makeCandlestick() {
     request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
       request.onload = function () {
 
+        var chosenName = "Apple Inc.";
+
+        document.getElementById("candlestickTitle").innerHTML = "High, Low, Open, Close for  " + chosenName;
+
         // parse data into a json format
         alldataCandle = JSON.parse(request.response);
 
@@ -59,11 +63,21 @@ function makeCandlestick() {
            .attr("transform", "translate(" + marginCandle.left + "," + marginCandle.top + ")");
 
         candlestickChart.append("g")
-                .attr("class", "candlestick");
+            .attr("class", "candlestick");
 
         candlestickChart.append("g")
                 .attr("class", "x axis candle")
                 .attr("transform", "translate(0," + heightCandle + ")");
+
+        // set axis label
+        candlestickChart.append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("x", 0)
+            .attr("y", - 60)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Prices per Share ($)");
 
         candlestickChart.append("g")
                 .attr("class", "y axis candle")
@@ -74,30 +88,34 @@ function makeCandlestick() {
                   .style("text-anchor", "end")
                   .text("Price ($)");
 
-                  xCandle.domain(alldays);
-                  yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
-                    d3.max(alldataCandle, function(d) { return d.high; })
-                    ]);
+          xCandle.domain(alldays);
+          yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
+            d3.max(alldataCandle, function(d) { return d.high; })
+            ]);
 
-                  candlestickChart.selectAll("g.candlestick").datum(alldataCandle).call(candlestick);
-                  candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
-                    .selectAll("text")
-                     .style("text-anchor", "end")
-                     .attr("dx", "-.8em")
-                     .attr("dy", ".15em")
-                     .attr("transform", "rotate(-65)");
-                  candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
+          candlestickChart.selectAll("g.candlestick").datum(alldataCandle).call(candlestick);
+
+          candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
+            .selectAll("text")
+             .style("text-anchor", "end")
+             .attr("dx", "-.8em")
+             .attr("dy", ".15em")
+             .attr("transform", "rotate(-65)");
+          candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
       };
       request.send();
 };
 
-function updateCandles(chosenFirm) {
+function updateCandles(chosenFirm, chosenName) {
 
     // select the linechart
     var chartCandle = d3.select("#candlestick").select("svg").select("g");
 
     // create new request variable
     var request = new XMLHttpRequest();
+
+    // create interactive title
+    document.getElementById("candlestickTitle").innerHTML = "High, Low, Open, Close for  " + chosenName;
 
     // request stock data from the chosen firm clicked on the scatterplot
     request.open("GET", "https://api.iextrading.com/1.0/stock/"+chosenFirm+"/chart/1m", false);
@@ -121,8 +139,7 @@ function updateCandles(chosenFirm) {
         d3.select(".y.axis.candle")
              .transition()
              .duration(1000)
-             .call(yAxisCandle)
-
+             .call(yAxisCandle);
 
         chartCandle.selectAll(".candlestick").datum(alldataCandle).call(candlestick);
 

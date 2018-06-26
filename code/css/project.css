@@ -65,18 +65,6 @@ path.line1 {
   stroke-width: 1.5px;
 }
 
-/* path.line2 {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5px;
-}
-
-path.line3 {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5px;
-} */
-
 path.candle {
     stroke: #000000;
 }

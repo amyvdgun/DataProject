@@ -147,9 +147,10 @@ function makeScatterplot() {
           .on("mouseover", tip.show)
           .on("mouseout", tip.hide)
           .on("click", function (d) {
+                  var chosenName = d.companyName;
                    var chosenFirm = d.symbol;
-                   updateLines(chosenFirm);
-                   updateCandles(chosenFirm);
+                   updateLines(chosenFirm, chosenName);
+                   updateCandles(chosenFirm, chosenName);
                });
 
         function zoomed() {
