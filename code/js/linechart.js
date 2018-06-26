@@ -68,7 +68,7 @@ function makeLinechart() {
             ]);
 
             // create x-axis below plot
-          	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(30);
+          	var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m"));
 
           	// create y-axis to the left of plot
           	var yAxis = d3.axisLeft(y);
@@ -179,7 +179,7 @@ function updateLines(chosenFirm, chosenName, chosenTime) {
             ]);
 
         // create x-axis below plot
-        var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(30);
+        var xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m"));
 
         // create y-axis to the left of plot
         var yAxis = d3.axisLeft(y);
@@ -188,7 +188,12 @@ function updateLines(chosenFirm, chosenName, chosenTime) {
         d3.select(".x.axis.linechart")
              .transition()
              .duration(1000)
-             .call(xAxis);
+             .call(xAxis)
+               .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-65)");
 
         // call y axis and add transition
         d3.select(".y.axis.linechart")
