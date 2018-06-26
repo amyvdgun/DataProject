@@ -169,9 +169,7 @@ function updateLines(chosenFirm, chosenName, chosenTime) {
         });
 
         // set the domain for x and y based on the dataset
-        x.domain(d3.extent(alldata, function(d) {
-          console.log(d);
-          return d.date; }));
+        x.domain(d3.extent(alldata, function(d) { return d.date; }));
 
         // set the new domain for y
         y.domain([d3.min(alldata, function(d) { return d.low; }),

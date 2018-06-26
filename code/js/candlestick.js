@@ -88,6 +88,21 @@ function makeCandlestick() {
                   .style("text-anchor", "end")
                   .text("Price ($)");
 
+          let superX = 400;
+
+          var superG = candlestickChart.append("g")
+            superG.append("rect")
+            .attr("x", superX)
+            .attr("y", 0)
+            .attr("height", 20)
+            .attr("width", 20)
+            .style("fill", "red")
+
+          superG.append("text")
+            .attr("y", 0)
+            .attr("x", superX + 30)
+            .text("htest")
+
           xCandle.domain(alldays);
           yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
             d3.max(alldataCandle, function(d) { return d.high; })
