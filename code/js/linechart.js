@@ -43,14 +43,15 @@ function makeLinechart() {
         .x(function(d) { return x(d.date); })
         .y(function(d) { return y(d.close); });
 
-  // create new request variable
-  var request = new XMLHttpRequest();
+    // create new request variable
+    var request = new XMLHttpRequest();
 
     // request stock data from Apple as default
     request.open("GET", "https://api.iextrading.com/1.0/stock/aapl/chart/1m", false);
-      request.onload = function () {
+    request.onload = function () {
 
         var chosenName = "Apple Inc.";
+        
         // create interactive title
         document.getElementById("linechartTitle").innerHTML = "Close prices for " + chosenName;
 

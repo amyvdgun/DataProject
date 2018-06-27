@@ -7,14 +7,13 @@
 * Creates interactive visualizations using financial data.
 */
 
-// execute function when DOM is loaded
 window.onload = function () {
 
     // initialize general variables
     var chosenFirm;
     var chosenName;
 
-    // create scatterplot
+    // create scatter plot
     makeScatterplot();
 
     // create line chart
@@ -29,19 +28,19 @@ window.onload = function () {
 
 function updateButtons(chosenFirm, chosenName) {
 
-    // update the lines when 1month button is clicked
+    // update the lines when the 1month button is clicked
     $( "#1month" ).on( "click", function() {
         var chosenTime = this.value;
         updateLines(chosenFirm, chosenName, chosenTime);
     })
 
-    // update the lines when 3month button is cliked
+    // update the lines when the 3month button is cliked
     $( "#3months" ).on( "click", function() {
         var chosenTime = this.value;
         updateLines(chosenFirm, chosenName, chosenTime);
     })
 
-    // update the lines when 6month button is clicked
+    // update the lines when the 6month button is clicked
     $( "#6months" ).on( "click", function() {
         var chosenTime = this.value;
         updateLines(chosenFirm, chosenName, chosenTime);
