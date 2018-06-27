@@ -12,8 +12,8 @@
 
 // set inner and outer width of svg
 var margin = {top: 50, bottom: 75, left: 100, right: 100},
-  width = 700 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // initialize general variables and functions
 var line1,x,y,alldata;
@@ -22,26 +22,26 @@ var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 function makeLinechart() {
 
-  // add the SVG element and set characteristics
-  var linechart = d3.select("#linechart")
-      .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // add the SVG element and set characteristics
+    var linechart = d3.select("#linechart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  // set the range for x
-  x = d3.scaleTime()
-		.range([0, width]);
+    // set the range for x
+    x = d3.scaleTime()
+  		  .range([0, width]);
 
-  // set the range for y
-	y = d3.scaleLinear()
-		.range([height, 0]);
+    // set the range for y
+  	y = d3.scaleLinear()
+  		  .range([height, 0]);
 
-  // define first line
-  line1 = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.close); });
+    // define first line
+    line1 = d3.line()
+        .x(function(d) { return x(d.date); })
+        .y(function(d) { return y(d.close); });
 
   // create new request variable
   var request = new XMLHttpRequest();
