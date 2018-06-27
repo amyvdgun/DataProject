@@ -4,13 +4,13 @@
 */
 
 text.label {
-  font-size: 14px;
-  text-align: center;
+    font-size: 14px;
+    text-align: center;
 }
 
 g.text, g.tick {
-  font-size: 14px;
-  text-align: center;
+    font-size: 14px;
+    text-align: center;
 }
 
 .axis line, .axis path {
@@ -19,7 +19,7 @@ g.text, g.tick {
 }
 
 .dot {
-  stroke: #000;
+    stroke: #000;
 }
 
 .d3-tip {
@@ -54,15 +54,15 @@ g.text, g.tick {
 
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
 }
 
 path.line1 {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5px;
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
 }
 
 path.candle {
