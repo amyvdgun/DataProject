@@ -23,6 +23,7 @@ g.text, g.tick {
 }
 
 .d3-tip {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     line-height: 1.5;
     padding: 8px;
     background: rgba(0, 0, 0, 0.8);
@@ -88,4 +89,15 @@ text#legend1 {
 
 text#legend2 {
     font-size: 12px;
+}
+
+div.tooltip {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    line-height: 1.5;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    font-size: 14px;
+    pointer-events: none !important;
 }

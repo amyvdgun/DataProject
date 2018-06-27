@@ -18,6 +18,7 @@ var marginCandle = {top: 50, bottom: 75, left: 100, right: 100},
 // initialize general variables and function
 var alldataCandle,candlestick,xCandle,yCandle;
 var parseDate = d3.timeParse("%Y-%m-%d");
+var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 function makeCandlestick() {
 
@@ -131,6 +132,32 @@ function makeCandlestick() {
            .attr("dy", ".15em")
            .attr("transform", "rotate(-65)");
         candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
+
+    var tooltipDiv = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+    candlestickChart.append('rect').attr('class', 'overlay')
+        .attr('width', widthCandle).attr('height', heightCandle)
+        .on("mouseover", function() {
+          tooltipDiv.style('opacity', 1);
+          tooltipDiv.style("display", null);
+        }).on("mouseout", function() {
+          tooltipDiv.style('opacity', 0);
+          tooltipDiv.style("display", "none");
+        }).style('fill', 'none').style('pointer-events', 'all').on('mousemove', function() {
+          var x0 = x.invert(d3.mouse(this)[0]),
+              i = bisectDate(alldataCandle, x0, 1),
+              d0 = alldataCandle[i-1],
+              d1 = alldataCandle[i],
+              d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+      tooltipDiv.style('left', d3.event.pageX+5+'px')
+        .style('top', d3.event.pageY-30+'px')
+            .html(function (alldataCandle) {
+              return ("High: "
+              + d.high + "<br>" + "Low: " + d.low + "<br>" + "Open: " + d.open + "<br>" + "Close: " + d.close)});
+        });
       };
       request.send();
 };
