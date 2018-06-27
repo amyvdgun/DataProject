@@ -5,174 +5,174 @@ Amy van der Gun
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Stock Checker 5000">
-    <meta name="author" content="Amy van der Gun">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Stock Checker 5000">
+        <meta name="author" content="Amy van der Gun">
 
-    <title>Stock Checker 5000</title>
+        <title>Stock Checker 5000</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts-->
-    <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+        <!-- Custom fonts-->
+        <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles -->
-    <link href="bootstrap/css/grayscale.css" rel="stylesheet">
+        <!-- Custom styles -->
+        <link href="bootstrap/css/grayscale.css" rel="stylesheet">
 
-    <!--D3 scripts and extensions -->
-    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-    <script src="https://d3js.org/queue.v1.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <!--D3 scripts and extensions -->
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script src="https://d3js.org/queue.v1.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
-    <!--other CSS, fonts and scripts -->
-    <link rel="stylesheet" type="text/css" href="code/css/project.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <script src="code/js/main.js" type="text/javascript"></script>
-    <script src="code/js/scatter.js" type="text/javascript"></script>
-    <script src="code/js/linechart.js" type="text/javascript"></script>
-    <script src="code/js/candlestick.js" type="text/javascript"></script>
-    <script src="code/js/techan.js" type="text/javascript"></script>
-  </head>
+        <!--other CSS, fonts and scripts -->
+        <link rel="stylesheet" type="text/css" href="code/css/project.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <script src="code/js/main.js" type="text/javascript"></script>
+        <script src="code/js/scatter.js" type="text/javascript"></script>
+        <script src="code/js/linechart.js" type="text/javascript"></script>
+        <script src="code/js/candlestick.js" type="text/javascript"></script>
+        <script src="code/js/techan.js" type="text/javascript"></script>
 
-  <body id="page-top">
+    </head>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#visualizations">Visualizations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <body id="page-top">
 
-    <!-- Introduction-->
-    <header class="masthead">
-      <div class="intro-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h1 class="brand-heading">Stock Checker 5000</h1>
-              <p class="intro-text">Check your stock using super powerful financial visualizations!</p>
-              <a href="#about" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated" id="edgeButton"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="content-section text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>About Stock Checker 5000</h2>
-            <p>Investing is all that matters!</p>
-            <p>The first chart shows the relationship between the Earnings Per Share (EPS) and the Beta of all S&P500 stocks.
-            By hovering over the dots, the company name, the EPS and the beta are displayed.
-            By zooming and clicking on a certain dot, the line graph and the candlestick chart are updated.</p>
-            <p>The candlestick chart displays the high, low, open and close prices for the most recent last month of the chosen company.</p>
-            <p>The line graph shows the latest close price movements per share of the chosen company. By clicking on the buttons, the price movements for the most recent last month, week or day are displayed.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Visualizations Section -->
-    <section id="visualizations" class="download-section content-section text-center">
-      <div class="container-fluid">
-         <div class="row" id="row1">
-            <div class="col-12">
-              <h3>Risk-Return Relationship S&P500</h3>
-              <div class="col-sm-3 mx-auto">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="inputFirm" placeholder="Search Firm by Ticker">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" id="inputButton" type="button">Go</button>
-                  </span>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#visualizations">Visualizations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-              <div class="scatter" id="scatterplot"></div>
             </div>
-        </div>
-        <div class="row" id="row2">
-          <div class="col-6">
-            <h5 id="candlestickTitle"></h5>
-          </div>
-          <div class="col-6">
-            <h5 id="linechartTitle"></h5>
-            <button type="button" class="btn btn-outline-dark btn-sm" id="1month" value="1m">1 Month</button>
-            <button type="button" class="btn btn-outline-dark btn-sm" id="3months" value="3m">3 Months</button>
-            <button type="button" class="btn btn-outline-dark btn-sm" id="6months" value="6m">6 Months</button>
-          </div>
-        </div>
-        <div class="row" id="row3">
-          <div class="col-6">
-            <div class="candle" id="candlestick">
+        </nav>
+
+        <!-- Introduction-->
+        <header class="masthead">
+            <div class="intro-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h1 class="brand-heading">Stock Checker 5000</h1>
+                            <p class="intro-text">Check your stock using super powerful financial visualizations!</p>
+                            <a href="#about" class="btn btn-circle js-scroll-trigger">
+                                <i class="fa fa-angle-double-down animated" id="edgeButton"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="line" id="linechart">
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="content-section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>About Stock Checker 5000</h2>
+                        <p>Investing is all that matters!</p>
+                        <p>The first chart shows the relationship between the Earnings Per Share (EPS) and the Beta of all S&P500 stocks.
+                        By hovering over the dots, the company name, the EPS and the beta are displayed.
+                        By zooming and clicking on a certain dot, the line graph and the candlestick chart are updated.</p>
+                        <p>The candlestick chart displays the high, low, open and close prices for the most recent last month of the chosen company.</p>
+                        <p>The line graph shows the latest close price movements per share of the chosen company. By clicking on the buttons, the price movements for the most recent last month, week or day are displayed.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="content-section text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contact</h2>
-            <p>Feel free to
-              <a href="https://www.facebook.com/amy.vandergun">contact</a> me!</p>
-              <p><a href="https://iextrading.com/developer/docs/#getting-started">
-                Data</a> provided for free by IEX.
-                View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- Visualizations Section -->
+        <section id="visualizations" class="download-section content-section text-center">
+            <div class="container-fluid">
+                <div class="row" id="row1">
+                    <div class="col-12">
+                        <h3>Risk-Return Relationship S&P500</h3>
+                        <div class="col-sm-3 mx-auto">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputFirm" placeholder="Search Firm by Ticker">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" id="inputButton" type="button">Go</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="scatter" id="scatterplot"></div>
+                    </div>
+                </div>
+                <div class="row" id="row2">
+                    <div class="col-6">
+                        <h5 id="candlestickTitle"></h5>
+                    </div>
+                    <div class="col-6">
+                        <h5 id="linechartTitle"></h5>
+                        <button type="button" class="btn btn-outline-dark btn-sm" id="1month" value="1m">1 Month</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm" id="3months" value="3m">3 Months</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm" id="6months" value="6m">6 Months</button>
+                    </div>
+                </div>
+                <div class="row" id="row3">
+                    <div class="col-6">
+                        <div class="candle" id="candlestick"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="line" id="linechart"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container text-center">
-        <p>Copyright &copy; Amy van der Gunshow</p>
-      </div>
-    </footer>
+        <!-- Contact Section -->
+        <section id="contact" class="content-section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Contact</h2>
+                        <p>Feel free to
+                          <a href="https://www.facebook.com/amy.vandergun">contact</a> me!</p>
+                          <p><a href="https://iextrading.com/developer/docs/#getting-started">
+                          Data</a> provided for free by IEX.
+                          View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-    <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Footer -->
+        <footer>
+            <div class="container text-center">
+                <p>Copyright &copy; Amy van der Gunshow</p>
+            </div>
+        </footer>
 
-    <!-- Plugin JavaScript -->
-    <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+        <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts-->
-    <script src="bootstrap/js/grayscale.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  </body>
+        <!-- Custom scripts-->
+        <script src="bootstrap/js/grayscale.js"></script>
+
+    </body>
 
 </html>
