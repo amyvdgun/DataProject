@@ -13,7 +13,6 @@ g.text, g.tick {
   text-align: center;
 }
 
-
 .axis line, .axis path {
     fill: none;
     shape-rendering: crispEdges;
