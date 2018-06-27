@@ -130,15 +130,18 @@ function makeCandlestick() {
             .attr("x", 520)
             .text("Up ($)");
 
+        // set domain of x and y variables
         xCandle.domain(alldays);
         yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
             d3.max(alldataCandle, function(d) { return d.high; })
             ]);
 
+        // append the data to the candles of the chart
         candlestickChart.selectAll("g.candlestick")
             .datum(alldataCandle)
             .call(candlestick);
 
+        // call x axis
         candlestickChart.selectAll("g.x.axis.candle").call(xAxisCandle)
           .selectAll("text")
             .style("text-anchor", "end")
@@ -146,14 +149,19 @@ function makeCandlestick() {
             .attr("dy", ".15em")
             .attr("transform", "rotate(-65)");
 
+        // call y axis
         candlestickChart.selectAll("g.y.axis.candle").call(yAxisCandle);
 
+        // create tooltip
         var tooltipDiv = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
 
+        // append rect to svg for functioning of tooltip
         candlestickChart.append('rect').attr('class', 'overlay')
             .attr('width', widthCandle).attr('height', heightCandle)
+
+            // show tip when user hovers over the rect
             .on("mouseover", function() {
                 tooltipDiv.style('opacity', 1);
                 tooltipDiv.style("display", null);
@@ -163,6 +171,8 @@ function makeCandlestick() {
                 tooltipDiv.style("display", "none");
             })
             .style('fill', 'none').style('pointer-events', 'all')
+
+            // return the correct data when user hovers over the rect
             .on('mousemove', function() {
                 var x0 = x.invert(d3.mouse(this)[0]),
                     i = bisectDate(alldataCandle, x0, 1),
@@ -176,10 +186,10 @@ function makeCandlestick() {
                         return ("High: "
                         + d.high + "<br>" + "Low: " + d.low + "<br>" + "Open: "
                         + d.open + "<br>" + "Close: " + d.close)});
-            });
-      };
+            })
+      }
       request.send();
-};
+}
 
 function updateCandles(chosenFirm, chosenName) {
 
@@ -205,6 +215,7 @@ function updateCandles(chosenFirm, chosenName) {
             d.date = parseDate(d.date);
         })
 
+        // set new domain for y variable
         yCandle.domain([d3.min(alldataCandle, function(d) { return d.low; }),
             d3.max(alldataCandle, function(d) { return d.high; })
             ]);
@@ -218,6 +229,7 @@ function updateCandles(chosenFirm, chosenName) {
              .duration(1000)
              .call(yAxisCandle);
 
+        // append the data to the candles of the chart
         chartCandle.selectAll(".candlestick")
             .datum(alldataCandle)
             .call(candlestick);
