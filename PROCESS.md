@@ -45,6 +45,6 @@ Vandaag heb ik mijn candlestick chart afgerond. Het is gelukt!!! Super blij mee.
 Vandaag heb ik ervoor gezorgd dat ik even duidelijk op een rijtje had wat er nog moet gebeuren. Ik ben begonnen door interactieve titels boven mijn charts te plaatsen. Vervolgens heb ik een interactief element gecreeerd: 3 buttons boven mijn line chart. Als er op de buttons geklikt wordt, wordt er elke keer een andere API request gedaan. Er kan gekozen worden voor een overzicht van de share prices van de meest recente maand, het meest recente kwartaal en het meest recente halfjaar. Dit werkt allemaal gelukkig.
 
 # Day 15 - 27 June
-Vandaag heb ik de search bar gefixt. Het werkt nu; de gezochte dots worden groter en krijgen een andere kleur. Verder heb ik ervoor gezorgd dat de tooltip van mijn candlestick chart overeenkomt met de tooltip van de scatterplot. Dit is gelukt. Verder heb ik mijn code wat opgeschoond en comments geplaatst.
+Vandaag heb ik de search bar gefixt. Het werkt nu; de gezochte dots worden groter en krijgen een andere kleur. Verder heb ik ervoor gezorgd dat de tooltip van mijn candlestick chart overeenkomt met de tooltip van de scatterplot. Dit is gelukt. Verder heb ik mijn code wat opgeschoond en comments geplaatst. 
 
 # Day 16 - 28 June
