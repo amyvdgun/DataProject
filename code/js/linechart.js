@@ -54,7 +54,7 @@ function makeLinechart() {
 
         // create interactive title
         document.getElementById("linechartTitle").innerHTML = "Close prices for "
-          + chosenName;
+            + chosenName;
 
         // parse data into a json format
         alldata = JSON.parse(request.response);
@@ -148,7 +148,7 @@ function makeLinechart() {
 
             // display the date and close price when hovering over the line
             focus.attr("transform", "translate(" + x(d.date) + ","
-              + y(d.close) + ")");
+                + y(d.close) + ")");
             focus.select("text").text(d.close);
         }
     }
@@ -169,7 +169,7 @@ function updateLines(chosenFirm, chosenName, chosenTime) {
 
     // request stock data from the chosen firm clicked on the scatterplot
     request.open("GET", "https://api.iextrading.com/1.0/stock/" + chosenFirm
-      + "/chart/" + chosenTime, false);
+        + "/chart/" + chosenTime, false);
     request.onload = function() {
 
         // parse all stats data into a json format

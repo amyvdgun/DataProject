@@ -33,8 +33,8 @@ function makeScatterplot() {
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function (d) {
-          return (d.companyName + "<br>" + "Beta: " + d.beta.toFixed(3) +
-          "<br>" + "Earnings per Share: " + d.latestEPS.toFixed(3)+"M")});
+            return (d.companyName + "<br>" + "Beta: " + d.beta.toFixed(3) +
+            "<br>" + "Earnings per Share: " + d.latestEPS.toFixed(3)+"M")});
 
     // start the tip
     scatterplot.call(tip);
@@ -57,7 +57,7 @@ function makeScatterplot() {
 
             // request all stats data from entire string consisting of all stocks
             request.open("GET", "https://api.iextrading.com/1.0/stock/market/batch?symbols="
-              +symbols+"&types=stats", false);
+                +symbols+"&types=stats", false);
             request.onload = function () {
 
                 // parse all stats data into a json format
@@ -66,7 +66,7 @@ function makeScatterplot() {
                 // push the relevant variables into new array
                 for (firm in alldata) {
                     alldata[firm].stats.latestEPS =
-                      (alldata[firm].stats.latestEPS) / 100;
+                        (alldata[firm].stats.latestEPS) / 100;
                     scatterdata.push(alldata[firm].stats);
                 }
 
@@ -91,7 +91,7 @@ function makeScatterplot() {
           var y = d3.scaleLinear()
               .range([height, 0])
               .domain(d3.extent(scatterdata, function(d) {
-                return (d.latestEPS); })).nice();
+                  return (d.latestEPS); })).nice();
 
           // create axes
           var xAxis = d3.axisBottom(x)
@@ -163,7 +163,7 @@ function makeScatterplot() {
                   // scroll to line and candlestick chart when a dot is clicked
                   $("html, body").animate({
                       scrollTop: $("#row2").offset().top -
-                        $("nav").outerHeight()}, "slow")
+                          $("nav").outerHeight()}, "slow")
               })
 
             function zoomed() {
