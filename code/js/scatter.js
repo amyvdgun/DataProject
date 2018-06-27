@@ -155,6 +155,10 @@ function makeScatterplot() {
                  updateLines(chosenFirm, chosenName, "1m");
                  updateCandles(chosenFirm, chosenName);
                  updateButtons(chosenFirm, chosenName);
+
+			           $("html, body").animate({
+      		        scrollTop: $("#row2").offset().top -
+      		        		$("nav").outerHeight()}, "slow")
                });
 
         function zoomed() {
