@@ -26,6 +26,8 @@ window.onload = function () {
   // update the buttons of the line chart using the default firm Apple
   updateButtons("aapl", "Apple Inc.");
 
+  searchFirm();
+
 };
 
 function updateButtons(chosenFirm, chosenName) {
@@ -43,5 +45,21 @@ function updateButtons(chosenFirm, chosenName) {
       var chosenTime = this.value;
       updateLines(chosenFirm, chosenName, chosenTime);
   });
+}
 
+function searchFirm() {
+
+  $("#inputButton").on( "click", function() {
+    var inputTicker = inputFirm.value.toUpperCase();
+    console.log(inputTicker);
+  });
+
+  $("#inputFirm").keypress(function(event){
+
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == "13"){
+		var inputTicker = inputFirm.value.toUpperCase();
+    console.log(inputTicker);
+	 }
+ });
 }
