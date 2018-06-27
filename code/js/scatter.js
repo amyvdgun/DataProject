@@ -138,7 +138,6 @@ function makeScatterplot() {
           // call zoom option
           scatterplot.call(zoom);
 
-
         // create dots in the plot for each data point
         var points = scatterplot.selectAll(".dot").data(scatterdata)
         points = points.enter().append("circle")
@@ -147,7 +146,7 @@ function makeScatterplot() {
           .attr("r", 6)
           .attr("cx", function(d) { return x(d.beta); })
           .attr("cy", function(d) { return y(d.latestEPS); })
-          .style("fill", function(d) { return color(3); })
+          .style("fill", "slategrey")
           .on("mouseover", tip.show)
           .on("mouseout", tip.hide)
           .on("click", function (d) {
@@ -171,31 +170,33 @@ function makeScatterplot() {
              .attr('cy', function(d) {return new_yScale(d.latestEPS)});
         }
 
+        d3.selection.prototype.moveToFront = function() {
+          return this.each(function(){
+            this.parentNode.appendChild(this);
+          });
+        };
+
+        // get value that is provided when button is clicked
+        $("#inputButton").on( "click", function() {
+          var inputTicker = inputFirm.value.toUpperCase();
+          d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
+          d3.select("#"+inputTicker).moveToFront().style("fill", "red").attr("r", 12);
+          if (d3.select("#"+inputTicker).empty( )) {
+            alert("Invalid ticker symbol!");
+          }
+        });
+        // get value that is provided when enter key is pressed
+        $("#inputFirm").keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == "13"){
+          var inputTicker = inputFirm.value.toUpperCase();
+          d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
+          d3.select("#"+inputTicker).moveToFront().style("fill", "red").attr("r", 12);
+          if (d3.select("#"+inputTicker).empty( )) {
+            alert("Invalid ticker symbol!");
+          }
+         }
+       });
+
   };
-
-//     // Get the input field - FIX ENTER KNOP ONCLICK TRIGGER
-//     var input = document.getElementById("inputFirm");
-//
-//     // Execute a function when the user releases a key on the keyboard
-//     input.addEventListener("keyup", function(event) {
-//     // Cancel the default action, if needed
-//     event.preventDefault();
-//     // Number 13 is the "Enter" key on the keyboard
-//     if (event.keyCode === 13) {
-//       // Trigger the button element with a click
-//       document.getElementById("myBtn").click();
-//     }
-//   });
-
-// function searchFirm() {
-//   var input = document.getElementById("inputFirm").value;
-//   console.log(input);
-//
-//   request.open("GET", "https://api.iextrading.com/1.0/stock/"+input+"/stats", false);
-//   request.onload = function () {
-//     var elements = request.response;
-//     console.log(elements);
-//     alldata.push(elements);
-//   }
-//   request.send();};
 };
