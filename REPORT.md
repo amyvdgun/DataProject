@@ -15,14 +15,14 @@ In de folder 'code/js' staat daarnaast de JavaScript file 'techan.js'. Dit is ee
 In deze file staat een window.onload: dit zorgt ervoor dat dit script pas wordt uitgevoerd als de hele html file (alle componenten) is geladen. Vervolgens worden er 3 functies aangeroepen die ervoor zorgen dat er een scatter plot, een line chart en een candlestick chart gemaakt worden. Daarnaast wordt de updateButtons functie aangeroepen. Dit moet in de main.js, omdat er accuraat gereageerd moet worden op het klikken van de buttons boven de line chart. Op het moment dat de gebruiker een bepaald aandeel selecteert in de scatter plot, moeten de buttons boven de line chart wél data opvragen die horen bij dat bepaalde aandeel. Als deze functie niet zou worden aangeroepen, zou het klikken op de buttons ervoor zorgen dat er altijd data van Apple Inc. (default firm) opgevraagd wordt.
 
 #### scatter.js
-makeScatterplot() is de overkoepelende functie in de scatter.js file. De svg wordt hier aangemaakt. Verder wordt er een API request gedaan naar financiële data van alle S&P500 bedrijven. Alle ticker symbolen van deze bedrijven laad ik in via 6 csv bestanden. Deze moeten in 6 files, omdat er van slechts 100 bedrijven data opgehaald kan worden per API request. De x- en y-variabelen (Beta en EPS) van elk bedrijf worden gepusht in een nieuwe array. Als al deze data verzameld is, wordt de scatter plot gecreëerd. 
-
-
+makeScatterplot() is de overkoepelende functie in de scatter.js file. De svg wordt hier aangemaakt. Verder wordt er een API request gedaan naar financiële data van alle S&P500 bedrijven. Alle ticker symbolen van deze bedrijven laad ik in via 6 csv bestanden. Deze moeten in 6 files, omdat er van slechts 100 bedrijven data opgehaald kan worden per API request. De x- en y-variabelen (Beta en EPS) van elk bedrijf worden gepusht in een nieuwe array. Als al deze data verzameld is, wordt de scatter plot gecreëerd door het aanroepen van de makeScatter functie. Hier wordt de data gekoppeld aan de dots. Als er wordt geklikt op de dots, worden de updateLines, updateCandles en de updateButtons functies aangeroepen. Verder wordt de zoom-functie gemaakt en aangeroepen. Tot slot volgt er een stuk code waarbij er gereageerd wordt op de input van de gebruiker in de search box. De gezochte dot wordt rood en groter gemaakt.  
 
 #### candlestick.js
+Deze file bestaat uit twee grote functies. In makeCandlestick() wordt de candlestick chart voor het eerst gemaakt. Er wordt een API request gedaan voor de high, low, open en close prijzen voor Apple voor de laatste meest recente maand. De file techan.js is gebruikt voor het creëeren van deze chart. De data wordt gekoppeld aan de candles. Verder wordt er een tooltip aangemaakt die de high, low, open en close prijzen weergeeft per tijdslot.
+De functie updateCandles wordt aangeroepen op het moment dat de gebruiker een dot selecteert in de scatter plot. Er wordt vanuit scatter.js een 'chosenFirm' meegegeven die wordt gebruikt in de API request. Op deze manier wordt er nieuwe data gekoppeld aan de candles.
 
 #### linechart.js
-
+Deze file bestaat uit twee grote functies.
 
 Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
 
