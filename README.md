@@ -43,6 +43,8 @@ Verder kan de gebruiker boven de line chart op 3 buttons klikken. De eerste butt
 ## Externe bronnen
 - Bootstrap grayscale > in 'bootstrap' folder
 - Techan.js > in 'code/js' folder
+- Google fonts
+- D3 V4
 
 ## Inspiratie
 - http://bl.ocks.org/andredumas/27c4a333b0e0813e093d
