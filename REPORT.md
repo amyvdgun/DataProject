@@ -7,10 +7,20 @@ De Stock Checker 5000 biedt inzichten voor investeerders voor wie het vaak lasti
 
 ## Technisch Design
 Het project bestaat uit 1 main JavaScript file en 3 afzonderlijke JavaScript files voor elke grafiek.
-In main.js worden 
+In 'main.js' worden drie functies aangeroepen die leiden tot het creëeren van de 3 charts.
+In 'scatter.js' staat de functie waarmee de scatter plot gecreëerd wordt. In zowel 'candlestick.js' als 'linechart.js' staan 2 grote functies. De eerste functie zorgt ervoor dat de charts voor de eerste keer gemaakt worden. De tweede functie in beide files is een update functie. Deze functies worden aangeroepen op het moment dat de gebruiker klikt op een dot in de scatter plot.
+In de folder 'code/js' staat daarnaast de JavaScript file 'techan.js'. Dit is een externe bron die ik heb gebruikt voor het maken van de candlestick chart.
+
+#### main.js
+
+#### scatter.js
+
+#### candlestick.js
+
+#### linechart.js
 
 
-Clearly describe the technical design: how is the functionality implemented in your code? This should be like your DESIGN.md but updated to reflect the final application. First, give a high level overview, which helps us navigate and understand the total of your code (which components are there?). Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
+Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
 
 Clearly describe challenges that your have met during development. Document all important changes that your have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.
 
