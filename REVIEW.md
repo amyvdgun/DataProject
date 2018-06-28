@@ -2,7 +2,7 @@
 ## Commentaar Bas Katsma op de code van Amy van der Gun
 
 #### main.js
-ziet er goed uit, alleen comments zijn wat overbodig bij logische functienaam
+- ziet er goed uit, alleen comments zijn wat overbodig bij logische functienaam
 
 #### scatter.js
 - magic numbers
@@ -21,14 +21,16 @@ ziet er goed uit, alleen comments zijn wat overbodig bij logische functienaam
 - consitentie wat betreft d3 attributes
 
 #### css
-naam css file aanpassen \
-laatste regels uit elkaar trekken voor consistentie
+- mooi!
+
+#### html
+- ziet er goed uit!
 
 ### Beoordeling
 Comments: 3 \
-Names: 4 \
-Formatting: 2 \
-Organization: 4 \
-Flow: 3 \
-Idiom: 4 \
-Structure: 3
+Names: 3 \
+Formatting: 3 \
+Organization: 3 \
+Flow: 2 \
+Idiom: 3 \
+Structure: 2
