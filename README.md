@@ -13,9 +13,9 @@ Voor investeerders is het lastig om de juiste afweging te maken tussen het nemen
 - Een maandoverzicht van de high, low, open en close prijzen per S&P500 aandeel
 - Een maand/kwartaal/halfjaar overzicht van de close prijzen per S&P500 aandeel
 
-Op deze manier kan een investeerder gemakkelijk inzicht krijgen in de afweging tussen risico en rendement én in de volatiliteit en de meest recente prijsontwikkelingen van het aandeel.
+Op deze manier kan een investeerder gemakkelijk inzicht krijgen in de relatie tussen risico en rendement én in de volatiliteit en de meest recente prijsontwikkelingen van een bepaald aandeel.
 
-In de **Stock Checker 5000** wordt "realtime" data gebruikt. 
+In de **Stock Checker 5000** wordt "realtime" data gebruikt.
 
 ## De Werking
 
