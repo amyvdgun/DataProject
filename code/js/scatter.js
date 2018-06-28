@@ -195,19 +195,19 @@ function makeScatterplot() {
                 // alert if no input is given
                 if (inputFirm.value == "") {
                     alert("You must provide a ticker symbol!");
-                }
+                } else {
+                    var inputTicker = inputFirm.value.toUpperCase();
+                    d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
 
-                var inputTicker = inputFirm.value.toUpperCase();
-                d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
+                    // adjust the dot with id that equals the provided ticker symbol
+                    d3.select("#"+inputTicker).moveToFront()
+                        .style("fill", "red")
+                        .attr("r", 12);
 
-                // adjust the dot with id that equals the provided ticker symbol
-                d3.select("#"+inputTicker).moveToFront()
-                    .style("fill", "red")
-                    .attr("r", 12);
-
-                // alert if an invalid input is provided
-                if (d3.select("#"+inputTicker).empty( )) {
-                    alert("Invalid ticker symbol!");
+                    // alert if an invalid input is provided
+                    if (d3.select("#"+inputTicker).empty( )) {
+                        alert("Invalid ticker symbol!");
+                    }
                 }
             })
 
@@ -219,15 +219,15 @@ function makeScatterplot() {
                     // alert if no input is given
                     if (inputFirm.value == "") {
                         alert("You must provide a ticker symbol!");
-                    }
-                    
-                    var inputTicker = inputFirm.value.toUpperCase();
-                    d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
-                    d3.select("#"+inputTicker).moveToFront()
-                        .style("fill", "red")
-                        .attr("r", 12);
-                    if (d3.select("#"+inputTicker).empty( )) {
-                        alert("Invalid ticker symbol!");
+                    } else {
+                        var inputTicker = inputFirm.value.toUpperCase();
+                        d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
+                        d3.select("#"+inputTicker).moveToFront()
+                            .style("fill", "red")
+                            .attr("r", 12);
+                        if (d3.select("#"+inputTicker).empty( )) {
+                            alert("Invalid ticker symbol!");
+                        }
                     }
                 }
            })

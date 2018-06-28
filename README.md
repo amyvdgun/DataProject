@@ -40,7 +40,7 @@ Verder kan de gebruiker boven de line chart op 3 buttons klikken. De eerste butt
 
 ![](doc/Visueel2.png)
 
-## Externe bronnen
+## Externe Bronnen
 - Bootstrap grayscale > in 'bootstrap' folder
 - Techan.js > in 'code/js' folder
 - Google fonts

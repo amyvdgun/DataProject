@@ -5,7 +5,9 @@ De Stock Checker 5000 biedt inzichten voor investeerders voor wie het vaak lasti
 
 ![](doc/Report.png)
 
-
+## Technisch Design
+Het project bestaat uit 1 main JavaScript file en 3 afzonderlijke JavaScript files voor elke grafiek.
+In main.js worden 
 
 
 Clearly describe the technical design: how is the functionality implemented in your code? This should be like your DESIGN.md but updated to reflect the final application. First, give a high level overview, which helps us navigate and understand the total of your code (which components are there?). Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
