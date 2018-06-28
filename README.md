@@ -23,7 +23,7 @@ Druk op de knop of scroll naar beneden voor de volgende sectie. Daar is te lezen
 
 ![](doc/About.png)
 
-Scroll naar beneden voor de visualisaties. Allereerst is de scatter plot te zien. De plot weergeeft het verband tussen de beta en de EPS van alle S&P500 aandelen. Omdat de puntenwolk groot is, kan er worden ingezoomd op elk punt in de grafiek. Verder kan er gehoverd worden over alle punten; de bedrijfsnaam, de beta en de EPS worden dan weergegeven. t.
+Scroll naar beneden voor de visualisaties. Allereerst is de scatter plot te zien. De plot weergeeft het verband tussen de beta en de EPS van alle S&P500 aandelen. Omdat de puntenwolk groot is, kan er worden ingezoomd op elk punt in de grafiek. Verder kan er gehoverd worden over alle punten; de bedrijfsnaam, de beta en de EPS worden dan weergegeven.
 
 ![](doc/Scatter1.png)
 
