@@ -1,5 +1,11 @@
 # Stock Checker 5000 - REPORT
-Create a report (REPORT.md), based on your design document, containing important decisions that you’ve made, e.g. where you changed your mind during the past weeks. This is how you show the reviewer that you actually understand what you have done.
+[Stock Checker 5000](https://amyvdgun.github.io/DataProject/)
+## Introductie
+De Stock Checker 5000 biedt inzichten voor investeerders voor wie het vaak lastig is om een afweging te maken tussen risico en rendement. Alle S&P500 aandelen kunnen worden geanalyseerd. Elke afzonderlijke stock kan worden geanalyseerd door de candlestick en line chart te bekijken. Door gebruik te maken van alle interactieve elementen, kan het raadplegen van de Stock Checker als erg nuttig ervaren worden.
+
+![](doc/Report.png)
+
+
 
 Start with a short description of your application (like in the README.md, but very short, including a single screen shot).
 
