@@ -12,8 +12,10 @@ In 'scatter.js' staat de functie waarmee de scatter plot gecreëerd wordt. In zo
 In de folder 'code/js' staat daarnaast de JavaScript file 'techan.js'. Dit is een externe bron die ik heb gebruikt voor het maken van de candlestick chart.
 
 #### main.js
+In deze file staat een window.onload: dit zorgt ervoor dat dit script pas wordt uitgevoerd als de hele html file (alle componenten) is geladen. Vervolgens worden er 3 functies aangeroepen die ervoor zorgen dat er een scatter plot, een line chart en een candlestick chart gemaakt worden. Daarnaast wordt de updateButtons functie aangeroepen. Dit moet in de main.js, omdat er accuraat gereageerd moet worden op het klikken van de buttons boven de line chart. Op het moment dat de gebruiker een bepaald aandeel selecteert in de scatter plot, moeten de buttons boven de line chart wél data opvragen die horen bij dat bepaalde aandeel. Als deze functie niet zou worden aangeroepen, zou het klikken op de buttons ervoor zorgen dat er altijd data van Apple Inc. (default firm) opgevraagd wordt.
 
 #### scatter.js
+
 
 #### candlestick.js
 

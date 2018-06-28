@@ -41,13 +41,59 @@ Verder kan de gebruiker boven de line chart op 3 buttons klikken. De eerste butt
 ![](doc/Visueel2.png)
 
 ## Externe Bronnen
-- Bootstrap grayscale > in 'bootstrap' folder
-- Techan.js > in 'code/js' folder
-- Google fonts
-- D3 V4
+- Bootstrap grayscale > in 'bootstrap' folder (MIT License)
+- Techan.js > in 'code/js' folder (MIT License)
+- D3 V4 (BSD 3-Clause "New" or "Revised" License)
+- d3-tip 0.7.1 (Apache License 2.0)
+- Photo by rawpixel on [Unsplash](https://unsplash.com/photos/XkKhkijcgTo)
 
 ## Inspiratie
 - http://bl.ocks.org/andredumas/27c4a333b0e0813e093d
 - https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
 - https://bl.ocks.org/aleereza/d2be3d62a09360a770b79f4e5527eea8
 - https://bl.ocks.org/EfratVil/d956f19f2e56a05c31fb6583beccfda7
+
+## Copyright
+- Bootstrap grayscale
+
+The MIT License (MIT)
+
+Copyright (c) 2013-2018 Blackrock Digital LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+- Techan.js
+
+The MIT License
+
+Copyright (c) 2014 André Dumas https://github.com/andredumas/techan.js
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+- D3 V4
+
+Copyright 2010-2017 Mike Bostock All rights reserved.
+
+- D3 tip 0.7.1.
+
+Copyright (c) 2013 Justin Palmer
