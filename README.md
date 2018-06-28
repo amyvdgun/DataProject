@@ -1,6 +1,5 @@
 # Stock Checker 5000
-Naam: Amy van der Gun
-
+Naam: Amy van der Gun \
 Studentnummer: 10791760
 
 [Stock Checker 5000](https://amyvdgun.github.io/DataProject/)
@@ -20,11 +19,11 @@ In de **Stock Checker 5000** wordt "realtime" data gebruikt.
 ## De Werking
 
 ![](doc/Voorkant.png)
-![](doc/About.jpg)
-![](doc/Scatter1.jpg)
-![](doc/Scatter2.jpg)
-![](doc/Visueel1.jpg)
-![](doc/Visueel2.jpg)
+![](doc/About.png)
+![](doc/Scatter1.png)
+![](doc/Scatter2.png)
+![](doc/Visueel1.png)
+![](doc/Visueel2.png)
 
 
 
