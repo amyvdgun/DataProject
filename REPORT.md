@@ -15,6 +15,8 @@ In de folder 'code/js' staat daarnaast de JavaScript file 'techan.js'. Dit is ee
 In deze file staat een window.onload: dit zorgt ervoor dat dit script pas wordt uitgevoerd als de hele html file (alle componenten) is geladen. Vervolgens worden er 3 functies aangeroepen die ervoor zorgen dat er een scatter plot, een line chart en een candlestick chart gemaakt worden. Daarnaast wordt de updateButtons functie aangeroepen. Dit moet in de main.js, omdat er accuraat gereageerd moet worden op het klikken van de buttons boven de line chart. Op het moment dat de gebruiker een bepaald aandeel selecteert in de scatter plot, moeten de buttons boven de line chart wél data opvragen die horen bij dat bepaalde aandeel. Als deze functie niet zou worden aangeroepen, zou het klikken op de buttons ervoor zorgen dat er altijd data van Apple Inc. (default firm) opgevraagd wordt.
 
 #### scatter.js
+makeScatterplot() is de overkoepelende functie in de scatter.js file. De svg wordt hier aangemaakt. Verder wordt er een API request gedaan naar financiële data van alle S&P500 bedrijven. Alle ticker symbolen van deze bedrijven laad ik in via 6 csv bestanden. Deze moeten in 6 files, omdat er van slechts 100 bedrijven data opgehaald kan worden per API request. De x- en y-variabelen (Beta en EPS) van elk bedrijf worden gepusht in een nieuwe array. Als al deze data verzameld is, wordt de scatter plot gecreëerd. 
+
 
 
 #### candlestick.js
