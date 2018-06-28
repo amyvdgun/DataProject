@@ -19,7 +19,7 @@ In de **Stock Checker 5000** wordt "realtime" data gebruikt.
 
 ## De Werking
 
-![](doc/Voorkant.jpg)
+![](doc/Voorkant.png)
 ![](doc/About.jpg)
 ![](doc/Scatter1.jpg)
 ![](doc/Scatter2.jpg)
