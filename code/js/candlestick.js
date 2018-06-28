@@ -12,8 +12,8 @@
 
 // set inner and outer width of svg
 var marginCandle = {top: 50, bottom: 75, left: 100, right: 100},
-  widthCandle = 700 - marginCandle.left - marginCandle.right,
-  heightCandle = 600 - marginCandle.top - marginCandle.bottom;
+    widthCandle = 700 - marginCandle.left - marginCandle.right,
+    heightCandle = 600 - marginCandle.top - marginCandle.bottom;
 
 // initialize general variables and function
 var alldataCandle,candlestick,xCandle,yCandle;
@@ -207,6 +207,7 @@ function updateCandles(chosenFirm, chosenName) {
     request.open("GET", "https://api.iextrading.com/1.0/stock/" + chosenFirm
         + "/chart/1m", false);
     request.onload = function() {
+      
         // parse all stats data into a json format
         alldataCandle = JSON.parse(request.response);
 

@@ -32,11 +32,11 @@ function makeLinechart() {
 
     // set the range for x
     x = d3.scaleTime()
-  		  .range([0, width]);
+        .range([0, width]);
 
     // set the range for y
-  	y = d3.scaleLinear()
-  		  .range([height, 0]);
+    y = d3.scaleLinear()
+        .range([height, 0]);
 
     // define first line
     line1 = d3.line()
@@ -78,7 +78,6 @@ function makeLinechart() {
 
       	// create y axis to the left of plot
       	var yAxis = d3.axisLeft(y);
-
 
         // draw x axis on desired position
         linechart.append("g")
@@ -162,7 +161,7 @@ function updateLines(chosenFirm, chosenName, chosenTime) {
 
     // create interactive title
     document.getElementById("linechartTitle").innerHTML = "Close prices for "
-      + chosenName;
+        + chosenName;
 
     // create new request variable
     var request = new XMLHttpRequest();

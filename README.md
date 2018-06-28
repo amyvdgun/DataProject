@@ -19,7 +19,6 @@ In de **Stock Checker 5000** wordt "realtime" data gebruikt.
 
 ## De Werking
 
-hai
 
 
 
