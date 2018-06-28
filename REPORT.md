@@ -19,15 +19,23 @@ makeScatterplot() is de overkoepelende functie in de scatter.js file. De svg wor
 
 #### candlestick.js
 Deze file bestaat uit twee grote functies. In makeCandlestick() wordt de candlestick chart voor het eerst gemaakt. Er wordt een API request gedaan voor de high, low, open en close prijzen voor Apple voor de laatste meest recente maand. De file techan.js is gebruikt voor het creëeren van deze chart. De data wordt gekoppeld aan de candles. Verder wordt er een tooltip aangemaakt die de high, low, open en close prijzen weergeeft per tijdslot.
-De functie updateCandles wordt aangeroepen op het moment dat de gebruiker een dot selecteert in de scatter plot. Er wordt vanuit scatter.js een 'chosenFirm' meegegeven die wordt gebruikt in de API request. Op deze manier wordt er nieuwe data gekoppeld aan de candles.
+De functie updateCandles wordt aangeroepen op het moment dat de gebruiker een dot selecteert in de scatter plot. Er wordt vanuit scatter.js een 'chosenFirm' meegegeven die wordt gebruikt in de API request. Op deze manier wordt er nieuwe data gekoppeld aan de candles en de y-as.
 
 #### linechart.js
-Deze file bestaat uit twee grote functies.
+Deze file bestaat uit twee grote functies. In makeLinechart() wordt de line chart voor het eerst gemaakt. Er wordt een API request gedaan voor de high, low, open en close prijzen voor Apple voor de laatste meest recente maand. De close price data wordt meegegeven aan de lijn in de chart. Verder wordt er een tooltip aangemaakt die deze close prijzen weergeeft op het moment dat de gebruiker hovert over de lijn.
+De functie updateLines wordt aangeroepen op het moment dat de gebruiker een dot selecteert in de scatter plot. Er wordt vanuit scatter.js een 'chosenFirm' meegegeven die wordt gebruikt in de API request. Daarnaast wordt er een 'chosenTime' meegegeven die wordt gebruikt in de API request. Deze chosenTime variabele wordt meegegeven vanuit main.js op het moment dat de gebruiker klikt op een button boven de line chart. Op deze manier wordt er nieuwe data gekoppeld aan de lijn en de assen.
 
-Second, go into detail, and describe the modules/classes (apps) files/functions (data) and how they relate.
+## Uitdagingen
+Voor mij was het een uitdaging om te werken met een API. Ik had dat nog nooit op deze manier gedaan. Ik was aan het begin van deze periode relatief veel tijd kwijt om uit te zoeken hoe ik data visualiseer die ik terugkrijg van een API request. Uiteindelijk ben ik alleen maar blij dat ik voor deze optie heb gekozen, omdat ik op deze manier gebruik maak van 'realtime data', wat ervoor zorgt dat mijn project voor langere tijd relevant zal blijven.
+Ik heb niet veel veranderingen doorgevoerd ten opzichte van het initiële plan. Dingen die ik heb veranderd:
+- geen dropdown menu meer bij de scatter plot
+- y-variabele is geen return on equity, maar EPS
+- de line graph weergeeft geen data per uur/minuut, maar weergeeft data van de laatste meest recente maand, kwartaal of halfjaar.
+- de candles zijn niet clickable, omdat techan.js een aparte library is die dat niet toestaat.
 
-Clearly describe challenges that your have met during development. Document all important changes that your have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.
-
-Defend your decisions by writing an argument of a most a single paragraph. Why was it good to do it different than you thought before? Are there trade-offs for your current solution? In an ideal world, given much more time, would you choose another solution?
-
-Make sure the document is complete and reflects the final state of the application. The document will be an important part of your grade.
+## Waarom op deze manier?
+Ik heb gekozen om geen gebruik te maken van een dropdown menu bij de scatter plot. Ik heb dit overlegd met de assistenten en er werd gezegd dat ik dan gebruik moest maken van een slider. Dit is lastig voor mijn visualisatie en voor mijn data.
+Als vervanging voor dit interactieve element heb ik 3 buttons gemaakt boven de line chart. Voor een investeerder is het tevens interessanter om te weten hoe de prijzen van de meest recente maand, kwartaal en halfjaar zich hebben ontwikkeld, dan hoe hoog de beta en EPS waren in voorgaande jaren.
+De y-variabele in de scatter plot is de EPS geworden in plaats van de return on equity. Dit is ook een vorm van return op een share en bij deze variabele werd er een minder geclusterde datawolk weergegeven. Dit komt ten goede van de plot en de interactieve functies (hover).
+Ik heb gekozen om bij de line graph geen data per uur/minuut weer te geven, omdat het redelijk nietszeggend is wat een aandelenkoers in 1 uur/minuut doet. Investeerders willen liever weten wat de trend is op een iets langere termijn.
+In een ideale wereld zou ik meerdere variabelen willen weergeven in de scatter plot. Ik zou meer buttons willen toevoegen die andere relaties laten zien. Graag had ik mij nog willen focussen op dividenduitkeringen en risico's.
