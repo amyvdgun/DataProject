@@ -196,6 +196,7 @@ function makeScatterplot() {
                 if (inputFirm.value == "") {
                     alert("You must provide a ticker symbol!");
                 }
+
                 var inputTicker = inputFirm.value.toUpperCase();
                 d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
 
@@ -219,6 +220,7 @@ function makeScatterplot() {
                     if (inputFirm.value == "") {
                         alert("You must provide a ticker symbol!");
                     }
+                    
                     var inputTicker = inputFirm.value.toUpperCase();
                     d3.selectAll(".dot").style("fill", "slategrey").attr("r", 6);
                     d3.select("#"+inputTicker).moveToFront()

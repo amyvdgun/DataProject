@@ -13,13 +13,9 @@ window.onload = function () {
     var chosenFirm;
     var chosenName;
 
-    // create scatter plot
+    // create all visualizations
     makeScatterplot();
-
-    // create line chart
     makeLinechart();
-
-    // create candlestick chart
     makeCandlestick();
 
     // update the buttons of the line chart using the default firm Apple
