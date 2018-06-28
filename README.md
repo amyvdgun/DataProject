@@ -19,8 +19,11 @@ In de **Stock Checker 5000** wordt "realtime" data gebruikt.
 ## De Werking
 
 ![](doc/Voorkant.png)
+Druk op de knop of scroll naar beneden voor de volgende sectie. Daar is te lezen hoe de grafieken werken en wat de gebruiker ermee kan.
 ![](doc/About.png)
+Scroll naar beneden voor de visualisaties. Allereerst is de scatter plot te zien. De plot weergeeft het verband tussen de beta en de EPS van alle S&P500 aandelen. Omdat de puntenwolk groot is, kan er worden ingezoomd op elk punt in de grafiek. Verder kan er gehoverd worden over alle punten; de bedrijfsnaam, de beta en de EPS worden dan weergegeven. De gebruiker kan zoeken op een ticker symbool. Op het moment dat het ticker symbool geldig is, wordt de desbetreffende dot rood en groter gemaakt. Dit maak het voor de gebruiker makkelijk om een bedrijf te selecteren voor de line en candlestick chart. 
 ![](doc/Scatter1.png)
+
 ![](doc/Scatter2.png)
 ![](doc/Visueel1.png)
 ![](doc/Visueel2.png)
