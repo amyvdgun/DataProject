@@ -40,4 +40,12 @@ Verder kan de gebruiker boven de line chart op 3 buttons klikken. De eerste butt
 
 ![](doc/Visueel2.png)
 
+## Externe bronnen
+- Bootstrap grayscale > in 'bootstrap' folder
+- Techan.js > in 'code/js' folder
+
 ## Inspiratie
+- http://bl.ocks.org/andredumas/27c4a333b0e0813e093d
+- https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
+- https://bl.ocks.org/aleereza/d2be3d62a09360a770b79f4e5527eea8
+- https://bl.ocks.org/EfratVil/d956f19f2e56a05c31fb6583beccfda7
