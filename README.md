@@ -1,9 +1,13 @@
 # Stock Checker 5000
-https://amyvdgun.github.io/DataProject/
+Amy van der Gun
+10791760
 
-## Introductie
+[Stock Checker 5000](https://amyvdgun.github.io/DataProject/)
+
+In dit project visualiseer ik financiële data van de S&P500.
 
 ## Het Doel
+
 
 ## De Werking
 
