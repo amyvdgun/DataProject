@@ -4,6 +4,8 @@ Studentnummer: 10791760
 
 [Stock Checker 5000](https://amyvdgun.github.io/DataProject/)
 
+[DEMO STOCK CHECKER 5000](https://youtu.be/TsjLZAhh57w)
+
 In dit project visualiseer ik financiële data van de S&P500.
 
 ## Het Doel
